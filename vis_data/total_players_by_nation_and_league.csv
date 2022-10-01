@@ -1,0 +1,329 @@
+Nation,League,Count
+ALB,La Liga,3
+ALB,Premier League,1
+ALB,Serie A,10
+ALG,Bundesliga,2
+ALG,La Liga,1
+ALG,Ligue 1,20
+ALG,Premier League,2
+ALG,Serie A,4
+ANG,Bundesliga,1
+ANG,La Liga,1
+ANG,Premier League,1
+ANG,Serie A,1
+ARG,Bundesliga,3
+ARG,La Liga,33
+ARG,Ligue 1,8
+ARG,Premier League,8
+ARG,Serie A,21
+ARM,Bundesliga,1
+ARM,La Liga,1
+ARM,Serie A,1
+AUS,Bundesliga,1
+AUS,La Liga,1
+AUT,Bundesliga,26
+AUT,La Liga,2
+AUT,Ligue 1,3
+AUT,Premier League,1
+AUT,Serie A,4
+BEL,Bundesliga,12
+BEL,La Liga,5
+BEL,Ligue 1,9
+BEL,Premier League,10
+BEL,Serie A,6
+BEN,Ligue 1,3
+BFA,Bundesliga,1
+BFA,Ligue 1,2
+BFA,Premier League,1
+BIH,Bundesliga,2
+BIH,Ligue 1,3
+BIH,Premier League,2
+BIH,Serie A,5
+BRA,Bundesliga,7
+BRA,La Liga,19
+BRA,Ligue 1,27
+BRA,Premier League,27
+BRA,Serie A,24
+BUL,Serie A,1
+CAN,Bundesliga,1
+CAN,La Liga,1
+CAN,Ligue 1,2
+CGO,Bundesliga,1
+CGO,Ligue 1,2
+CHA,Ligue 1,1
+CHI,Bundesliga,1
+CHI,La Liga,3
+CHI,Ligue 1,1
+CHI,Premier League,1
+CHI,Serie A,5
+CHN,La Liga,1
+CIV,Bundesliga,1
+CIV,La Liga,3
+CIV,Ligue 1,12
+CIV,Premier League,7
+CIV,Serie A,10
+CMR,Bundesliga,1
+CMR,La Liga,2
+CMR,Ligue 1,15
+CMR,Premier League,2
+CMR,Serie A,4
+COD,Bundesliga,1
+COD,Ligue 1,4
+COD,Premier League,3
+COL,Bundesliga,1
+COL,La Liga,8
+COL,Ligue 1,1
+COL,Premier League,5
+COL,Serie A,6
+CPV,La Liga,1
+CPV,Ligue 1,2
+CPV,Serie A,1
+CRC,Bundesliga,1
+CRC,La Liga,1
+CRC,Ligue 1,1
+CRO,Bundesliga,9
+CRO,La Liga,4
+CRO,Ligue 1,6
+CRO,Premier League,2
+CRO,Serie A,16
+CTA,La Liga,1
+CTA,Ligue 1,1
+CYP,Serie A,1
+CZE,Bundesliga,5
+CZE,La Liga,1
+CZE,Premier League,4
+CZE,Serie A,3
+DEN,Bundesliga,15
+DEN,La Liga,5
+DEN,Ligue 1,1
+DEN,Premier League,14
+DEN,Serie A,7
+DOM,La Liga,2
+ECU,Bundesliga,2
+ECU,La Liga,1
+ECU,Premier League,2
+ECU,Serie A,2
+EGY,Bundesliga,2
+EGY,Premier League,3
+ENG,Bundesliga,6
+ENG,La Liga,1
+ENG,Ligue 1,5
+ENG,Premier League,198
+ENG,Serie A,6
+EQG,La Liga,3
+ESP,Bundesliga,8
+ESP,La Liga,369
+ESP,Ligue 1,12
+ESP,Premier League,30
+ESP,Serie A,17
+FIN,Bundesliga,3
+FIN,Ligue 1,1
+FIN,Premier League,2
+FIN,Serie A,2
+FRA,Bundesliga,36
+FRA,La Liga,24
+FRA,Ligue 1,275
+FRA,Premier League,31
+FRA,Serie A,22
+GAB,La Liga,1
+GAB,Ligue 1,3
+GAB,Premier League,1
+GAM,Serie A,4
+GEO,La Liga,1
+GEO,Ligue 1,1
+GER,Bundesliga,220
+GER,La Liga,3
+GER,Ligue 1,8
+GER,Premier League,10
+GER,Serie A,10
+GHA,Bundesliga,4
+GHA,La Liga,3
+GHA,Ligue 1,7
+GHA,Premier League,6
+GHA,Serie A,5
+GLP,Ligue 1,1
+GNB,Ligue 1,3
+GNB,Serie A,2
+GRE,Bundesliga,6
+GRE,Ligue 1,1
+GRE,Premier League,3
+GRE,Serie A,7
+GRN,Premier League,1
+GUF,Ligue 1,2
+GUI,Bundesliga,1
+GUI,La Liga,2
+GUI,Ligue 1,5
+GUI,Premier League,1
+GUI,Serie A,2
+HON,La Liga,1
+HON,Ligue 1,1
+HUN,Bundesliga,7
+IRL,Bundesliga,1
+IRL,Premier League,14
+IRN,Bundesliga,1
+IRN,Premier League,1
+ISL,Bundesliga,1
+ISL,Premier League,1
+ISL,Serie A,4
+ISR,Bundesliga,1
+ISR,Serie A,2
+ITA,Bundesliga,2
+ITA,La Liga,1
+ITA,Ligue 1,4
+ITA,Premier League,4
+ITA,Serie A,246
+JAM,Premier League,3
+JPN,Bundesliga,8
+JPN,La Liga,1
+JPN,Ligue 1,1
+JPN,Premier League,2
+JPN,Serie A,2
+KOR,Bundesliga,4
+KOR,La Liga,1
+KOR,Ligue 1,2
+KOR,Premier League,2
+KVX,Bundesliga,1
+KVX,La Liga,1
+KVX,Ligue 1,4
+KVX,Premier League,1
+KVX,Serie A,3
+LUX,Bundesliga,2
+LUX,Ligue 1,1
+LUX,Serie A,1
+MAD,Ligue 1,2
+MAR,Bundesliga,2
+MAR,La Liga,7
+MAR,Ligue 1,10
+MAR,Premier League,4
+MAR,Serie A,4
+MEX,La Liga,7
+MEX,Premier League,1
+MEX,Serie A,2
+MKD,La Liga,2
+MKD,Serie A,3
+MLI,Bundesliga,3
+MLI,Ligue 1,20
+MLI,Premier League,3
+MLI,Serie A,1
+MNE,Bundesliga,1
+MNE,La Liga,4
+MNE,Ligue 1,1
+MNE,Serie A,1
+MOZ,La Liga,1
+MOZ,Ligue 1,2
+MTQ,La Liga,1
+MTQ,Ligue 1,1
+MTQ,Serie A,1
+NED,Bundesliga,27
+NED,La Liga,7
+NED,Ligue 1,13
+NED,Premier League,16
+NED,Serie A,17
+NGA,Bundesliga,5
+NGA,La Liga,1
+NGA,Ligue 1,5
+NGA,Premier League,9
+NGA,Serie A,8
+NIR,Premier League,5
+NOR,Bundesliga,6
+NOR,La Liga,1
+NOR,Ligue 1,3
+NOR,Premier League,7
+NOR,Serie A,9
+NZL,Premier League,2
+NZL,Serie A,1
+PAN,Bundesliga,1
+PAR,La Liga,2
+PAR,Premier League,1
+PAR,Serie A,2
+PER,La Liga,2
+PER,Ligue 1,1
+PHI,Bundesliga,1
+POL,Bundesliga,7
+POL,Ligue 1,4
+POL,Premier League,6
+POL,Serie A,17
+POR,Bundesliga,5
+POR,La Liga,10
+POR,Ligue 1,14
+POR,Premier League,21
+POR,Serie A,8
+REU,Ligue 1,1
+ROU,La Liga,2
+ROU,Serie A,9
+RSA,Ligue 1,2
+RUS,Bundesliga,1
+RUS,La Liga,2
+RUS,Ligue 1,1
+RUS,Serie A,2
+SCO,Ligue 1,1
+SCO,Premier League,16
+SCO,Serie A,2
+SEN,Bundesliga,1
+SEN,La Liga,8
+SEN,Ligue 1,27
+SEN,Premier League,5
+SEN,Serie A,6
+SLE,Serie A,1
+SRB,Bundesliga,4
+SRB,La Liga,11
+SRB,Ligue 1,4
+SRB,Premier League,2
+SRB,Serie A,16
+SRI,Premier League,1
+SUI,Bundesliga,19
+SUI,La Liga,1
+SUI,Ligue 1,5
+SUI,Premier League,2
+SUI,Serie A,7
+SUR,Bundesliga,1
+SUR,Serie A,1
+SVK,Bundesliga,3
+SVK,La Liga,2
+SVK,Premier League,2
+SVK,Serie A,7
+SVN,Bundesliga,1
+SVN,La Liga,1
+SVN,Serie A,6
+SWE,Bundesliga,5
+SWE,La Liga,4
+SWE,Ligue 1,2
+SWE,Premier League,7
+SWE,Serie A,6
+TOG,Bundesliga,1
+TOG,La Liga,1
+TOG,Ligue 1,2
+TUN,Bundesliga,2
+TUN,Ligue 1,5
+TUN,Premier League,1
+TUN,Serie A,1
+TUR,Bundesliga,3
+TUR,La Liga,3
+TUR,Ligue 1,5
+TUR,Premier League,4
+TUR,Serie A,5
+UKR,La Liga,1
+UKR,Ligue 1,2
+UKR,Premier League,3
+UKR,Serie A,3
+URU,La Liga,17
+URU,Ligue 1,2
+URU,Premier League,2
+URU,Serie A,9
+USA,Bundesliga,14
+USA,La Liga,4
+USA,Ligue 1,4
+USA,Premier League,3
+USA,Serie A,5
+UZB,Serie A,1
+VEN,Bundesliga,1
+VEN,La Liga,2
+VEN,Ligue 1,1
+VEN,Premier League,1
+VEN,Serie A,2
+WAL,La Liga,1
+WAL,Premier League,12
+WAL,Serie A,2
+ZAM,Premier League,2
+ZIM,Ligue 1,2
+ZIM,Premier League,1
