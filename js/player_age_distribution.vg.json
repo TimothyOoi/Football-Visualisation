@@ -1,0 +1,74 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/datasets/Big5/2021-2022/stats.csv"
+  },
+  "params": [
+    {
+      "name": "Comp_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Bundesliga",
+          "La Liga",
+          "Ligue 1",
+          "Premier League",
+          "Serie A"
+        ],
+        "labels": [
+          "Show All",
+          "Bundesliga",
+          "La Liga",
+          "Ligue 1",
+          "Premier League",
+          "Serie A"
+        ],
+        "name": "League Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": {
+        "field": "Age",
+        "gt": 0
+      }
+    },
+    {
+      "filter": "Comp_selection == null || datum.Comp == Comp_selection"
+    }
+  ],
+  "mark": {
+    "type": "bar"
+  },
+  "encoding": {
+    "x": {
+      "field": "Age",
+      "type": "ordinal",
+      "title": "Age",
+      "bin": {
+        "step": 3
+      }
+    },
+    "y": {
+      "aggregate": "count",
+      "title": "No. of Players"
+    },
+    "tooltip": [
+      {
+        "field": "Age",
+        "type": "ordinal"
+      },
+      {
+        "field": "Age",
+        "aggregate": "count",
+        "title": "No. of Players"
+      },
+      {
+        "field": "Comp",
+        "type": "nominal"
+      }
+    ]
+  }
+}
