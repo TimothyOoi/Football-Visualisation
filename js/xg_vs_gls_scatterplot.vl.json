@@ -1,0 +1,97 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 500,
+  "data": {
+    "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/datasets/Big5/2021-2022/shooting.csv"
+  },
+  "params": [
+    {
+      "name": "pos_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "DF", "MF", "FW"],
+        "labels": ["Show All", "Defenders", "Midfielders", "Forwards"],
+        "name": "Position Selection: "
+      }
+    },
+    {
+      "name": "shots_above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 150,
+        "step": 1,
+        "name": "Shots Above: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": {"field": "Pos", "oneOf": ["DF", "MF", "FW"]}},
+    {"filter": "pos_selection == null || datum.Pos == pos_selection"},
+    {"filter": "datum['Standard Sh'] > shots_above"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "Standard Gls",
+      "type": "quantitative",
+      "scale": {"zero": false}
+    },
+    "y": {
+      "field": "Expected xG",
+      "type": "quantitative",
+      "scale": {"zero": false}
+    }
+  },
+  "layer": [
+    {
+      "mark": "point",
+      "encoding": {
+        "color": {"field": "Pos", "type": "nominal"},
+        "shape": {"field": "Comp", "type": "nominal"},
+        "opacity": {"value": 0.8},
+        "tooltip": [
+          {"field": "Player", "type": "nominal"},
+          {"field": "Nation", "type": "nominal"},
+          {"field": "Squad", "type": "nominal"},
+          {"field": "Standard Gls", "type": "quantitative", "title": "Goals"},
+          {
+            "field": "Expected xG",
+            "type": "quantitative",
+            "title": "Expected Goals (xG)"
+          },
+          {
+            "field": "Expected G-xG",
+            "type": "quantitative",
+            "title": "Goals - xG"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum['Expected G-xG']>6.2"}],
+      "mark": {"type": "text", "align": "left", "dx": 5},
+      "encoding": {
+        "text": {"field": "Player", "type": "nominal"},
+        "color": {"value": "green"},
+        "opacity": {"value": 1}
+      }
+    },
+    {
+      "transform": [{"filter": "datum['Expected G-xG']<-6"}],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": -5,
+        "dy": -10,
+        "angle": 0
+      },
+      "encoding": {
+        "text": {"field": "Player", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {"value": 1}
+      }
+    }
+  ]
+}
