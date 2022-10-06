@@ -1,0 +1,138 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 400,
+    "title": {
+        "text": "Distribution of Players by Nationality (2021/2022 Season)",
+        "fontSize": 15
+    },
+    "projection": {
+        "type": "equalEarth"
+    },
+    "layer": [
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/week9_hw/js/ne_110m.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_admin_0_countries"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "#EFDD9D",
+                "stroke": "#B0B0B0"
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/week9_hw/js/oceans.topojson",
+                "format": {
+                    "type": "topojson",
+                    "feature": "oceans"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "skyblue"
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/week9_hw/js/cropped_ne_110m.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_graticules_30"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": null,
+                "stroke": "lightgray"
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/vis_data/total_players_by_nation.csv"
+            },
+            "mark": {
+                "type": "circle",
+                "tooltip": {
+                    "content": "data"
+                }
+            },
+            "encoding": {
+                "longitude": {
+                    "field": "longitude",
+                    "type": "quantitative"
+                },
+                "latitude": {
+                    "field": "latitude",
+                    "type": "quantitative"
+                },
+                "size": {
+                    "field": "Count",
+                    "type": "quantitative",
+                    "title": "Number of Players",
+                    "scale": {
+                        "type": "threshold",
+                        "domain": [
+                            5,
+                            10,
+                            30,
+                            120
+                        ],
+                        "range": [
+                            25,
+                            50,
+                            90,
+                            150,
+                            250
+                        ]
+                    }
+                },
+                "color": {
+                    "field": "Count",
+                    "type": "quantitative",
+                    "scale": {
+                        "type": "threshold",
+                        "domain": [
+                            5,
+                            10,
+                            30,
+                            120
+                        ],
+                        "range": [
+                            "#fef0d9",
+                            "#fdcc8a",
+                            "#fc8d59",
+                            "#e34a33",
+                            "#b30000"
+                        ]
+                    }
+                },
+                "opacity": {
+                    "value": 0.6
+                },
+                "stroke": {
+                    "value": "#6E6C66"
+                },
+                "tooltip": [
+                    {
+                        "field": "Country",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "Continent",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "Count",
+                        "type": "quantitative",
+                        "title": "No. of Players"
+                    }
+                ]
+            }
+        }
+    ]
+}

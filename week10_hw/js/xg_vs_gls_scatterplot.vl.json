@@ -1,0 +1,257 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 400,
+  "title": {
+    "text": "xG against Goals Scored (2021/2022 Season)",
+    "fontSize": 15
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/datasets/Big5/2021-2022/shooting.csv"
+  },
+  "params": [
+    {
+      "name": "pos_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "DF",
+          "MF",
+          "FW"
+        ],
+        "labels": [
+          "Show All",
+          "Defenders",
+          "Midfielders",
+          "Forwards"
+        ],
+        "name": "Position Selection: "
+      }
+    },
+    {
+      "name": "shots_above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 150,
+        "step": 1,
+        "name": "Shots Taken Above: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": {
+        "field": "Pos",
+        "oneOf": [
+          "DF",
+          "MF",
+          "FW"
+        ]
+      }
+    },
+    {
+      "filter": "pos_selection == null || datum.Pos == pos_selection"
+    },
+    {
+      "filter": "datum['Standard Sh'] > shots_above"
+    },
+    {
+      "calculate": "{'DF': 'Defender', 'MF': 'Midfielder', 'FW': 'Forward'}[datum.Pos]",
+      "as": "PosName"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Standard Gls",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          0,
+          36
+        ]
+      },
+      "title": "Goals Scored"
+    },
+    "y": {
+      "field": "Expected xG",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          0,
+          36
+        ]
+      },
+      "title": "Expected Goals (xG)"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line"
+      },
+      "data": {
+        "values": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 36,
+            "y": 36
+          }
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              36
+            ]
+          }
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              36
+            ]
+          }
+        },
+        "strokeDash": {
+          "value": [
+            8,
+            8
+          ]
+        },
+        "strokeWidth": {
+          "value": 1
+        },
+        "color": {
+          "value": "grey"
+        }
+      }
+    },
+    {
+      "mark": "point",
+      "encoding": {
+        "color": {
+          "field": "PosName",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Defender",
+              "Midfielder",
+              "Forward"
+            ],
+            "range": [
+              "#1b9e77",
+              "#7570b3",
+              "#d95f02"
+            ]
+          },
+          "title": "Position"
+        },
+        "shape": {
+          "field": "Comp",
+          "type": "nominal",
+          "title": "League"
+        },
+        "opacity": {
+          "value": 0.8
+        },
+        "tooltip": [
+          {
+            "field": "Player",
+            "type": "nominal"
+          },
+          {
+            "field": "Nation",
+            "type": "nominal"
+          },
+          {
+            "field": "Squad",
+            "type": "nominal",
+            "title": "Team"
+          },
+          {
+            "field": "PosName",
+            "type": "nominal",
+            "title": "Position"
+          },
+          {
+            "field": "Standard Gls",
+            "type": "quantitative",
+            "title": "Goals"
+          },
+          {
+            "field": "Expected xG",
+            "type": "quantitative",
+            "title": "Expected Goals (xG)"
+          },
+          {
+            "field": "Expected G-xG",
+            "type": "quantitative",
+            "title": "Goals - xG"
+          },
+          {
+            "field": "Standard Sh",
+            "type": "quantitative",
+            "title": "Shots Taken"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum['Expected G-xG']>6.2"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5
+      },
+      "encoding": {
+        "text": {
+          "field": "Player",
+          "type": "nominal"
+        },
+        "color": {
+          "value": "green"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum['Expected G-xG']<-6"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": -15,
+        "dy": -10,
+        "angle": 0
+      },
+      "encoding": {
+        "text": {
+          "field": "Player",
+          "type": "nominal"
+        },
+        "color": {
+          "value": "black"
+        }
+      }
+    }
+  ]
+}
