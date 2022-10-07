@@ -1,0 +1,53 @@
+body * {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-weight: 900;
+}
+
+body {
+    background-color: lightgray;
+}
+
+.page {
+    width: 1200px;
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    padding: 50px;
+    padding-top: 35px;
+}
+
+.vis-container {
+    width: 100%;
+}
+
+.description h2,
+h1 {
+    margin-top: 0px;
+}
+
+.description-right {
+    padding-right: 20px;
+    text-align: justify;
+}
+
+.description-left {
+    padding-right: 20px;
+}
+
+.pure-g {
+    margin-bottom: 40px;
+}
+
+.small-font {
+    font-size: 14px;
+}
+
+.overperformed_xg {
+    color: #327754;
+}
+
+.underperformed_xg {
+    color: #773255;
+}
