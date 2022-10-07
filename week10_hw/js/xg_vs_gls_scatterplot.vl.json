@@ -226,7 +226,7 @@
           "type": "nominal"
         },
         "color": {
-          "value": "green"
+          "value": " #327754"
         }
       }
     },
@@ -249,7 +249,7 @@
           "type": "nominal"
         },
         "color": {
-          "value": "black"
+          "value": "#773255"
         }
       }
     }

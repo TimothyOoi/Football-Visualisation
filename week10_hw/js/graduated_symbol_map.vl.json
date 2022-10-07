@@ -109,6 +109,13 @@
                             "#e34a33",
                             "#b30000"
                         ]
+                    },
+                    "legend": {
+                        "direction": "vertical",
+                        "orient": "bottom-left",
+                        "fillColor": "white",
+                        "strokeColor": "grey",
+                        "padding": 5
                     }
                 },
                 "opacity": {
