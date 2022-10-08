@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": "container",
   "data": {
     "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/datasets/Big5/2021-2022/stats.csv"
   },
@@ -19,7 +18,7 @@
           "Serie A"
         ],
         "labels": [
-          "Show All",
+          "All Leagues",
           "Bundesliga",
           "La Liga",
           "Ligue 1",
@@ -32,50 +31,54 @@
   ],
   "transform": [
     {
-      "filter": {
-        "field": "Age",
-        "gt": 0
-      }
+      "filter": "datum.Comp == Comp_selection || Comp_selection==null"
     }
   ],
-  "encoding": {
-    "x": {
-      "field": "Age",
-      "type": "ordinal",
-      "title": "Age",
-      "bin": {
-        "step": 3
-      }
-    },
-    "y": {
-      "aggregate": "count",
-      "title": "No. of Players"
-    }
-  },
   "layer": [
     {
+      "params": [
+        {
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "on": "mouseover",
+            "clear": "mouseout"
+          }
+        }
+      ],
+      "transform": [
+        {
+          "filter": {
+            "field": "Age",
+            "gt": 0
+          }
+        }
+      ],
       "mark": {
-        "type": "bar"
+        "type": "bar",
+        "color": "#eee",
+        "tooltip": true
       },
       "encoding": {
-        "color": {
-          "value": "#1b9e77"
+        "x": {
+          "bin": {
+            "step": 3
+          },
+          "field": "Age",
+          "type": "ordinal"
         },
-        "tooltip": [
-          {
-            "field": "Age",
-            "aggregate": "min",
-            "type": "ordinal",
-            "title": "Starting Age"
+        "opacity": {
+          "condition": {
+            "test": {
+              "param": "hover",
+              "empty": false
+            },
+            "value": 0.5
           },
+          "value": 0
+        },
+        "detail": [
           {
-            "field": "Age",
-            "aggregate": "max",
-            "type": "ordinal",
-            "title": "Ending Age"
-          },
-          {
-            "field": "Age",
             "aggregate": "count",
             "title": "No. of Players"
           }
@@ -86,48 +89,37 @@
       "mark": {
         "type": "bar"
       },
-      "transform": [
-        {
-          "filter": "datum.Comp == Comp_selection"
-        }
-      ],
       "encoding": {
         "x": {
-          "field": "Age",
-          "type": "ordinal",
-          "title": "Age",
           "bin": {
             "step": 3
-          }
+          },
+          "field": "Age",
+          "type": "ordinal",
+          "title": "Age"
         },
         "y": {
           "aggregate": "count",
-          "title": "No. of Players"
+          "title": "No. of Players",
+          "axis": {
+            "grid": true,
+            "zindex": 1,
+            "domainColor": "white",
+            "tickColor": "white",
+            "gridColor": "white"
+          }
         },
         "color": {
-          "condition": {
-            "test": "Comp_selection==null",
-            "value": "#1b9e77"
-          },
-          "value": "#d95f02"
-        },
-        "tooltip": [
-          {
-            "field": "Age",
-            "type": "ordinal"
-          },
-          {
-            "field": "Age",
-            "aggregate": "count",
-            "title": "No. of Players"
-          },
-          {
-            "field": "Comp",
-            "type": "nominal",
-            "title": "League"
-          }
-        ]
+          "value": "#1b9e77"
+        }
       }
     }
-  ]
+  ],
+  "config": {
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    }
+  }
 }
