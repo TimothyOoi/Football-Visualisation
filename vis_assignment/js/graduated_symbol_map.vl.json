@@ -7,8 +7,82 @@
         "fontSize": 15
     },
     "projection": {
-        "type": "equalEarth"
+        "type": "equalEarth",
+        "center": {
+            "expr": "center_to"
+        },
+        "scale": {
+            "expr": "zoom_level"
+        }
     },
+    "params": [
+        {
+            "name": "zoom_level",
+            "value": 150,
+            "bind": {
+                "input": "range",
+                "min": 100,
+                "max": 500,
+                "step": 10,
+                "name": "Zoom: "
+            }
+        },
+        {
+            "name": "center_to",
+            "value": [
+                0,
+                0
+            ],
+            "bind": {
+                "input": "select",
+                "options": [
+                    [
+                        0,
+                        0
+                    ],
+                    [
+                        20.939444,
+                        6.611111
+                    ],
+                    [
+                        94.443611,
+                        51.724722
+                    ],
+                    [
+                        9.254419,
+                        50.102223
+                    ],
+                    [
+                        -92.412528,
+                        25.30452
+                    ],
+                    [
+                        133.356833,
+                        -12.044762
+                    ],
+                    [
+                        -56.096944,
+                        -15.595833
+                    ],
+                    [
+                        108.425789,
+                        6.810082
+                    ]
+                ],
+                "labels": [
+                    "World",
+                    "Africa",
+                    "Asia",
+                    "Europe",
+                    "North America",
+                    "Oceania",
+                    "South America",
+                    "South East Asia"
+                ],
+                "name": "Map Centre: "
+            }
+        }
+    ],
     "layer": [
         {
             "data": {
@@ -18,10 +92,21 @@
                     "feature": "ne_110m_admin_0_countries"
                 }
             },
+            "transform": [
+                {
+                    "calculate": "datum.properties.NAME_CIAWF",
+                    "as": "country_name"
+                }
+            ],
             "mark": {
                 "type": "geoshape",
                 "fill": "#EFDD9D",
                 "stroke": "#B0B0B0"
+            },
+            "encoding": {
+                "tooltip": {
+                    "field": "country_name"
+                }
             }
         },
         {
