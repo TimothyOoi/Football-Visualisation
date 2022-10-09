@@ -6,27 +6,52 @@
   },
   "width": 500,
   "height": 500,
-  "params": [{"name": "num_variables", "value": 5}],
+  "params": [
+    {
+      "name": "num_variables",
+      "value": 5
+    }
+  ],
   "layer": [
     {
       "mark": "rule",
       "encoding": {
-        "x": {"value": 0},
-        "opacity": {"value": 0},
+        "x": {
+          "value": 0
+        },
+        "opacity": {
+          "value": 0
+        },
         "y": {
           "field": "LeagueRank",
           "type": "quantitative",
-          "scale": {"domain": [20, 1]},
-          "axis": {"grid": false, "title": null}
+          "scale": {
+            "domain": [
+              20,
+              1
+            ]
+          },
+          "axis": {
+            "grid": false,
+            "title": null
+          }
         },
-        "detail": [{"field": "Player"}]
+        "detail": [
+          {
+            "field": "Player"
+          }
+        ]
       }
     },
     {
       "mark": "rule",
       "encoding": {
-        "x": {"value": 0},
-        "opacity": {"value": 0},
+        "x": {
+          "value": 0
+        },
+        "opacity": {
+          "value": 0
+        },
         "y": {
           "field": "Performance CS%",
           "type": "quantitative",
@@ -34,25 +59,43 @@
             "grid": false,
             "title": null,
             "orient": "right",
-            "offset": {"expr": "-width*(4/num_variables)"}
+            "offset": {
+              "expr": "-width*(4/num_variables)"
+            }
           }
         },
-        "detail": [{"field": "Player"}]
+        "detail": [
+          {
+            "field": "Player"
+          }
+        ]
       }
     },
     {
       "mark": "rule",
       "encoding": {
-        "x": {"value": 0},
-        "opacity": {"value": 0},
+        "x": {
+          "value": 0
+        },
+        "opacity": {
+          "value": 0
+        },
         "y": {
           "field": "Performance GA90",
           "type": "quantitative",
+          "scale": {
+            "domain": [
+              0.6,
+              2.6
+            ]
+          },
           "axis": {
             "grid": false,
             "title": null,
             "orient": "right",
-            "offset": {"expr": "-width*(3/num_variables)"}
+            "offset": {
+              "expr": "-width*(3/num_variables)"
+            }
           }
         }
       }
@@ -60,16 +103,28 @@
     {
       "mark": "rule",
       "encoding": {
-        "x": {"value": 0},
-        "opacity": {"value": 0},
+        "x": {
+          "value": 0
+        },
+        "opacity": {
+          "value": 0
+        },
         "y": {
           "field": "Passes AvgLen",
           "type": "quantitative",
+          "scale": {
+            "domain": [
+              26,
+              56
+            ]
+          },
           "axis": {
             "grid": false,
             "title": null,
             "orient": "right",
-            "offset": {"expr": "-width*(2/num_variables)"}
+            "offset": {
+              "expr": "-width*(2/num_variables)"
+            }
           }
         }
       }
@@ -77,16 +132,28 @@
     {
       "mark": "rule",
       "encoding": {
-        "x": {"value": 0},
-        "opacity": {"value": 0},
+        "x": {
+          "value": 0
+        },
+        "opacity": {
+          "value": 0
+        },
         "y": {
           "field": "Goal Kicks AvgLen",
           "type": "quantitative",
+          "scale": {
+            "domain": [
+              20,
+              72
+            ]
+          },
           "axis": {
             "grid": false,
             "title": null,
             "orient": "right",
-            "offset": {"expr": "-width*(1/num_variables)"}
+            "offset": {
+              "expr": "-width*(1/num_variables)"
+            }
           }
         }
       }
@@ -94,12 +161,27 @@
     {
       "mark": "rule",
       "encoding": {
-        "x": {"value": 0},
-        "opacity": {"value": 0},
+        "x": {
+          "value": 0
+        },
+        "opacity": {
+          "value": 0
+        },
         "y": {
           "field": "Sweeper AvgDist",
+          "scale": {
+            "domain": [
+              10,
+              20
+            ]
+          },
           "type": "quantitative",
-          "axis": {"grid": false, "title": null, "orient": "right", "offset": 0}
+          "axis": {
+            "grid": false,
+            "title": null,
+            "orient": "right",
+            "offset": 0
+          }
         }
       }
     },
@@ -113,41 +195,114 @@
           "calculate": "[height - scale('layer_0_y', datum['LeagueRank']), height - scale('layer_1_y', datum['Performance CS%']), height - scale('layer_2_y', datum['Performance GA90']), height - scale('layer_3_y', datum['Passes AvgLen']), height - scale('layer_4_y', datum['Goal Kicks AvgLen']), height - scale('layer_5_y', datum['Sweeper AvgDist'])]",
           "as": "y"
         },
-        {"flatten": ["x", "y"]}
+        {
+          "flatten": [
+            "x",
+            "y"
+          ]
+        }
       ],
       "params": [
-        {"name": "highlight", "select": {"type": "point", "on": "click"}}
+        {
+          "name": "highlight",
+          "select": {
+            "type": "point",
+            "on": "click"
+          }
+        }
       ],
-      "mark": {"type": "line", "point": true, "tooltip": {"content": "data"}},
+      "mark": {
+        "type": "line",
+        "point": true,
+        "tooltip": {
+          "content": "data"
+        }
+      },
       "encoding": {
         "opacity": {
-          "condition": {"param": "highlight", "empty": false, "value": 1},
+          "condition": {
+            "param": "highlight",
+            "empty": false,
+            "value": 1
+          },
           "value": 0.2
         },
         "x": {
           "field": "x",
           "sort": null,
           "type": "ordinal",
-          "scale": {"type": "point", "padding": 0},
-          "axis": {"title": null, "labelAngle": 0, "domain": false}
+          "scale": {
+            "type": "point",
+            "padding": 0
+          },
+          "axis": {
+            "title": null,
+            "labelAngle": 0,
+            "domain": false
+          }
         },
-        "y": {"field": "y", "type": "quantitative", "axis": null},
-        "detail": {"field": "Player"},
-        "color": {"field": "Comp"},
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "axis": null
+        },
+        "detail": {
+          "field": "Player"
+        },
+        "color": {
+          "field": "Comp"
+        },
         "tooltip": [
-          {"field": "Player", "type": "nominal"},
-          {"field": "Squad", "type": "nominal"},
-          {"field": "Comp", "type": "nominal", "title": "League"},
-          {"field": "LeagueRank", "type": "quantitative"},
-          {"field": "Performance CS%", "type": "quantitative"},
-          {"field": "Performance GA90", "type": "quantitative"},
-          {"field": "Passes AvgLen", "type": "quantitative"},
-          {"field": "Goal Kicks AvgLen", "type": "quantitative"},
-          {"field": "Sweeper AvgDist", "type": "quantitative"}
+          {
+            "field": "Player",
+            "type": "nominal"
+          },
+          {
+            "field": "Squad",
+            "type": "nominal"
+          },
+          {
+            "field": "Comp",
+            "type": "nominal",
+            "title": "League"
+          },
+          {
+            "field": "LeagueRank",
+            "type": "quantitative"
+          },
+          {
+            "field": "Performance CS%",
+            "type": "quantitative"
+          },
+          {
+            "field": "Performance GA90",
+            "type": "quantitative"
+          },
+          {
+            "field": "Passes AvgLen",
+            "type": "quantitative"
+          },
+          {
+            "field": "Goal Kicks AvgLen",
+            "type": "quantitative"
+          },
+          {
+            "field": "Sweeper AvgDist",
+            "type": "quantitative"
+          }
         ]
       }
     }
   ],
-  "resolve": {"scale": {"y": "independent"}},
-  "config": {"padding": 0, "view": {"stroke": null}}
+  "resolve": {
+    "scale": {
+      "y": "independent"
+    }
+  },
+  "config": {
+    "padding": 0,
+    "view": {
+      "stroke": null
+    }
+  }
 }
