@@ -1,6 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A horizontal box plot showing median and lower and upper quartiles of the distribution of passes attempted by outfield players in the 2021/2022 season.",
+  "title": "Distribution of Passes",
+  "padding": {
+    "left": 10,
+    "top": 10,
+    "right": 40,
+    "bottom": 10
+  },
   "data": {
     "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/datasets/Big5/2021-2022/passing.csv"
   },
@@ -30,8 +37,12 @@
       "calculate": "datum['Long Prog']/datum['90s']",
       "as": "Progressive Passes per 90"
     },
-    {"filter": "datum['90s'] > Played_90s_above"},
-    {"filter": "datum.Pos != 'GK'"}
+    {
+      "filter": "datum['90s'] > Played_90s_above"
+    },
+    {
+      "filter": "datum.Pos != 'GK'"
+    }
   ],
   "vconcat": [
     {
@@ -42,7 +53,10 @@
             "y": {
               "field": "Comp",
               "type": "nominal",
-              "axis": {"domain": false, "ticks": false},
+              "axis": {
+                "domain": false,
+                "ticks": false
+              },
               "title": "League"
             },
             "color": {
@@ -54,33 +68,75 @@
             "x": {
               "field": "Passes Attempted per 90",
               "type": "quantitative",
-              "scale": {"zero": false},
-              "axis": {"domain": false, "ticks": false}
+              "scale": {
+                "zero": false
+              },
+              "axis": {
+                "domain": false,
+                "ticks": false
+              }
             },
             "tooltip": [
-              {"field": "Player", "type": "nominal"},
-              {"field": "Passes Attempted per 90", "type": "quantitative"},
-              {"field": "Pos", "type": "nominal"},
-              {"field": "90s", "type": "quantitative"}
+              {
+                "field": "Player",
+                "type": "nominal"
+              },
+              {
+                "field": "Passes Attempted per 90",
+                "type": "quantitative"
+              },
+              {
+                "field": "Pos",
+                "type": "nominal"
+              },
+              {
+                "field": "90s",
+                "type": "quantitative"
+              }
             ]
           }
         },
         {
-          "mark": {"type": "text", "align": "left", "dx": 5},
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 5
+          },
           "transform": [
             {
-              "window": [{"op": "rank", "as": "pass_att_ranking"}],
-              "sort": [
-                {"field": "Passes Attempted per 90", "order": "descending"}
+              "window": [
+                {
+                  "op": "rank",
+                  "as": "pass_att_ranking"
+                }
               ],
-              "groupby": ["Comp"]
+              "sort": [
+                {
+                  "field": "Passes Attempted per 90",
+                  "order": "descending"
+                }
+              ],
+              "groupby": [
+                "Comp"
+              ]
             },
-            {"filter": "datum.pass_att_ranking==1"}
+            {
+              "filter": "datum.pass_att_ranking==1"
+            }
           ],
           "encoding": {
-            "x": {"field": "Passes Attempted per 90", "type": "quantitative"},
-            "y": {"field": "Comp", "aggregate": "max", "type": "nominal"},
-            "text": {"field": "Player"}
+            "x": {
+              "field": "Passes Attempted per 90",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "Comp",
+              "aggregate": "max",
+              "type": "nominal"
+            },
+            "text": {
+              "field": "Player"
+            }
           }
         }
       ]
@@ -93,7 +149,10 @@
             "y": {
               "field": "Comp",
               "type": "nominal",
-              "axis": {"domain": false, "ticks": false},
+              "axis": {
+                "domain": false,
+                "ticks": false
+              },
               "title": "League"
             },
             "color": {
@@ -105,31 +164,67 @@
             "x": {
               "field": "Passes Completed per 90",
               "type": "quantitative",
-              "scale": {"zero": false},
-              "axis": {"domain": false, "ticks": false}
+              "scale": {
+                "zero": false
+              },
+              "axis": {
+                "domain": false,
+                "ticks": false
+              }
             },
             "tooltip": [
-              {"field": "Player", "type": "nominal"},
-              {"field": "Passes Completed per 90", "type": "quantitative"}
+              {
+                "field": "Player",
+                "type": "nominal"
+              },
+              {
+                "field": "Passes Completed per 90",
+                "type": "quantitative"
+              }
             ]
           }
         },
         {
-          "mark": {"type": "text", "align": "left", "dx": 5},
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 5
+          },
           "transform": [
             {
-              "window": [{"op": "rank", "as": "ranking"}],
-              "sort": [
-                {"field": "Passes Completed per 90", "order": "descending"}
+              "window": [
+                {
+                  "op": "rank",
+                  "as": "ranking"
+                }
               ],
-              "groupby": ["Comp"]
+              "sort": [
+                {
+                  "field": "Passes Completed per 90",
+                  "order": "descending"
+                }
+              ],
+              "groupby": [
+                "Comp"
+              ]
             },
-            {"filter": "datum.ranking==1"}
+            {
+              "filter": "datum.ranking==1"
+            }
           ],
           "encoding": {
-            "x": {"field": "Passes Completed per 90", "type": "quantitative"},
-            "y": {"field": "Comp", "aggregate": "max", "type": "nominal"},
-            "text": {"field": "Player"}
+            "x": {
+              "field": "Passes Completed per 90",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "Comp",
+              "aggregate": "max",
+              "type": "nominal"
+            },
+            "text": {
+              "field": "Player"
+            }
           }
         }
       ]
@@ -142,7 +237,10 @@
             "y": {
               "field": "Comp",
               "type": "nominal",
-              "axis": {"domain": false, "ticks": false},
+              "axis": {
+                "domain": false,
+                "ticks": false
+              },
               "title": "League"
             },
             "color": {
@@ -154,35 +252,176 @@
             "x": {
               "field": "Progressive Passes per 90",
               "type": "quantitative",
-              "scale": {"zero": false},
-              "axis": {"domain": false, "ticks": false}
+              "scale": {
+                "zero": false
+              },
+              "axis": {
+                "domain": false,
+                "ticks": false
+              }
             },
             "tooltip": [
-              {"field": "Player", "type": "nominal"},
-              {"field": "Progressive Passes per 90", "type": "quantitative"}
+              {
+                "field": "Player",
+                "type": "nominal"
+              },
+              {
+                "field": "Progressive Passes per 90",
+                "type": "quantitative"
+              }
             ]
           }
         },
         {
-          "mark": {"type": "text", "align": "left", "dx": 5},
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 5
+          },
           "transform": [
             {
-              "window": [{"op": "rank", "as": "ranking"}],
-              "sort": [
-                {"field": "Progressive Passes per 90", "order": "descending"}
+              "window": [
+                {
+                  "op": "rank",
+                  "as": "ranking"
+                }
               ],
-              "groupby": ["Comp"]
+              "sort": [
+                {
+                  "field": "Progressive Passes per 90",
+                  "order": "descending"
+                }
+              ],
+              "groupby": [
+                "Comp"
+              ]
             },
-            {"filter": "datum.ranking==1"}
+            {
+              "filter": "datum.ranking==1"
+            }
           ],
           "encoding": {
-            "x": {"field": "Progressive Passes per 90", "type": "quantitative"},
-            "y": {"field": "Comp", "aggregate": "max", "type": "nominal"},
-            "text": {"field": "Player"}
+            "x": {
+              "field": "Progressive Passes per 90",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "Comp",
+              "aggregate": "max",
+              "type": "nominal"
+            },
+            "text": {
+              "field": "Player"
+            }
           }
         }
       ]
     }
   ],
-  "config": {"style": {"cell": {"stroke": "transparent"}}}
+  "config": {
+    "padding": 10,
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    },
+    "font": "Roboto",
+    "background": "#f0f0f0",
+    "arc": {
+      "fill": "#30a2da"
+    },
+    "area": {
+      "fill": "#30a2da"
+    },
+    "axis": {
+      "domainColor": "#cbcbcb",
+      "grid": true,
+      "gridColor": "#cbcbcb",
+      "gridWidth": 1,
+      "labelColor": "#999",
+      "labelFontSize": 10,
+      "titleColor": "#333",
+      "tickColor": "#cbcbcb",
+      "tickSize": 10,
+      "titleFontSize": 14,
+      "titlePadding": 10,
+      "labelPadding": 4
+    },
+    "axisBand": {
+      "grid": false
+    },
+    "group": {
+      "fill": "#f0f0f0"
+    },
+    "legend": {
+      "labelColor": "#333",
+      "labelFontSize": 11,
+      "padding": 1,
+      "symbolSize": 30,
+      "symbolType": "square",
+      "titleColor": "#333",
+      "titleFontSize": 14,
+      "titlePadding": 10
+    },
+    "line": {
+      "stroke": "#30a2da",
+      "strokeWidth": 2
+    },
+    "path": {
+      "stroke": "#30a2da",
+      "strokeWidth": 0.5
+    },
+    "rect": {
+      "fill": "#30a2da"
+    },
+    "range": {
+      "category": [
+        "#30a2da",
+        "#fc4f30",
+        "#e5ae38",
+        "#6d904f",
+        "#8b8b8b",
+        "#b96db8",
+        "#ff9e27",
+        "#56cc60",
+        "#52d2ca",
+        "#52689e",
+        "#545454",
+        "#9fe4f8"
+      ],
+      "diverging": [
+        "#cc0020",
+        "#e77866",
+        "#f6e7e1",
+        "#d6e8ed",
+        "#91bfd9",
+        "#1d78b5"
+      ],
+      "heatmap": [
+        "#d6e8ed",
+        "#cee0e5",
+        "#91bfd9",
+        "#549cc6",
+        "#1d78b5"
+      ]
+    },
+    "point": {
+      "filled": true,
+      "shape": "circle"
+    },
+    "shape": {
+      "stroke": "#30a2da"
+    },
+    "bar": {
+      "binSpacing": 2,
+      "fill": "#30a2da",
+      "stroke": null
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 24,
+      "fontWeight": 600,
+      "offset": 20
+    }
+  }
 }
