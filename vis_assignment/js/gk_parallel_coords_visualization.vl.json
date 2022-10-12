@@ -1,15 +1,16 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A parallel coordinates plot",
+  "title": "Goalkeeping Statistics by First Choice Goalkeeper",
   "data": {
     "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/vis_assignment/data/gk_and_team_standings.csv"
   },
-  "width": 500,
-  "height": 500,
+  "width": "container",
+  "height": 400,
   "params": [
     {
       "name": "num_variables",
-      "value": 5
+      "value": 4
     },
     {
       "name": "league_selection",
@@ -46,31 +47,6 @@
           "value": 0
         },
         "y": {
-          "field": "Sweeper AvgDist",
-          "scale": {
-            "domain": [
-              10,
-              20
-            ]
-          },
-          "type": "quantitative",
-          "axis": {
-            "grid": false,
-            "title": null
-          }
-        }
-      }
-    },
-    {
-      "mark": "rule",
-      "encoding": {
-        "x": {
-          "value": 0
-        },
-        "opacity": {
-          "value": 0
-        },
-        "y": {
           "field": "Goal Kicks AvgLen",
           "type": "quantitative",
           "scale": {
@@ -81,11 +57,7 @@
           },
           "axis": {
             "grid": false,
-            "title": null,
-            "orient": "right",
-            "offset": {
-              "expr": "-width*(4/num_variables)"
-            }
+            "title": null
           }
         }
       }
@@ -124,11 +96,11 @@
       "encoding": {
         "x": {
           "value": {
-            "expr": "width*(3/num_variables)"
+            "expr": "width*(2/num_variables)"
           }
         },
         "opacity": {
-          "value": 1
+          "value": 0
         },
         "y": {
           "field": "LeagueRank",
@@ -143,6 +115,7 @@
             "grid": false,
             "title": null,
             "orient": "right",
+            "labelFontWeight": 900,
             "offset": {
               "expr": "-width*(2/num_variables)"
             },
@@ -238,11 +211,23 @@
           "filter": "league_selection==null || datum['Comp']==league_selection"
         },
         {
-          "calculate": "['Avg Sweeper Dist', 'Avg Goal Kick Length', 'Avg Pass Length', 'Rank', 'Clean Sheet %', 'GA90']",
+          "calculate": "datum['Performance CS%'] + '%'",
+          "as": "Clean Sheet Rate"
+        },
+        {
+          "calculate": "datum['Goal Kicks AvgLen'] + ' yards'",
+          "as": "Goal Kicks AvgLen Desc"
+        },
+        {
+          "calculate": "datum['Passes AvgLen'] + ' yards'",
+          "as": "Passes AvgLen Desc"
+        },
+        {
+          "calculate": "['Avg Goal Kick Length', 'Avg Pass Length', 'Rank', 'Clean Sheet %', 'Goals Conceded per 90']",
           "as": "x"
         },
         {
-          "calculate": "[height - scale('layer_0_y', datum['Sweeper AvgDist']), height - scale('layer_1_y', datum['Goal Kicks AvgLen']), height - scale('layer_2_y', datum['Passes AvgLen']), height - scale('layer_3_y', datum['LeagueRank']), height - scale('layer_4_y', datum['Performance CS%']), height - scale('layer_5_y', datum['Performance GA90'])]",
+          "calculate": "[height - scale('layer_0_y', datum['Goal Kicks AvgLen']), height - scale('layer_1_y', datum['Passes AvgLen']), height - scale('layer_2_y', datum['LeagueRank']), height - scale('layer_3_y', datum['Performance CS%']), height - scale('layer_4_y', datum['Performance GA90'])]",
           "as": "y"
         },
         {
@@ -300,8 +285,7 @@
           "field": "Player"
         },
         "color": {
-          "field": "Comp",
-          "title": "League"
+          "value": "#196f0c"
         },
         "tooltip": [
           {
@@ -310,7 +294,8 @@
           },
           {
             "field": "Squad",
-            "type": "nominal"
+            "type": "nominal",
+            "title": "Team"
           },
           {
             "field": "Comp",
@@ -319,27 +304,28 @@
           },
           {
             "field": "LeagueRank",
-            "type": "quantitative"
+            "type": "quantitative",
+            "title": "League Rank"
           },
           {
-            "field": "Performance CS%",
-            "type": "quantitative"
+            "field": "Clean Sheet Rate",
+            "type": "nominal",
+            "title": "Clean Sheet Percentage"
           },
           {
             "field": "Performance GA90",
-            "type": "quantitative"
+            "type": "quantitative",
+            "title": "Goals Conceded per 90"
           },
           {
-            "field": "Passes AvgLen",
-            "type": "quantitative"
+            "field": "Passes AvgLen Desc",
+            "type": "nominal",
+            "title": "Avg Pass Length"
           },
           {
-            "field": "Goal Kicks AvgLen",
-            "type": "quantitative"
-          },
-          {
-            "field": "Sweeper AvgDist",
-            "type": "quantitative"
+            "field": "Goal Kicks AvgLen Desc",
+            "type": "nominal",
+            "title": "Avg Goal Kick Length"
           }
         ]
       }
@@ -351,7 +337,9 @@
     }
   },
   "config": {
+    "font": "Roboto",
     "background": "#f0f0f0",
+    "padding": 20,
     "arc": {
       "fill": "#30a2da"
     },
@@ -444,7 +432,6 @@
     },
     "title": {
       "anchor": "start",
-      "font": "Roboto Serif",
       "fontSize": 24,
       "fontWeight": 600,
       "offset": 20
