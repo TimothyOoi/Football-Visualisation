@@ -10,6 +10,29 @@
     {
       "name": "num_variables",
       "value": 5
+    },
+    {
+      "name": "league_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Bundesliga",
+          "La Liga",
+          "Ligue 1",
+          "Premier League",
+          "Serie A"
+        ],
+        "labels": [
+          "All Leagues",
+          "Bundesliga",
+          "La Liga",
+          "Ligue 1",
+          "Premier League",
+          "Serie A"
+        ],
+        "name": "League Selection:"
+      }
     }
   ],
   "layer": [
@@ -23,6 +46,91 @@
           "value": 0
         },
         "y": {
+          "field": "Sweeper AvgDist",
+          "scale": {
+            "domain": [
+              10,
+              20
+            ]
+          },
+          "type": "quantitative",
+          "axis": {
+            "grid": false,
+            "title": null
+          }
+        }
+      }
+    },
+    {
+      "mark": "rule",
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "opacity": {
+          "value": 0
+        },
+        "y": {
+          "field": "Goal Kicks AvgLen",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              20,
+              72
+            ]
+          },
+          "axis": {
+            "grid": false,
+            "title": null,
+            "orient": "right",
+            "offset": {
+              "expr": "-width*(4/num_variables)"
+            }
+          }
+        }
+      }
+    },
+    {
+      "mark": "rule",
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "opacity": {
+          "value": 0
+        },
+        "y": {
+          "field": "Passes AvgLen",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              26,
+              56
+            ]
+          },
+          "axis": {
+            "grid": false,
+            "title": null,
+            "orient": "right",
+            "offset": {
+              "expr": "-width*(3/num_variables)"
+            }
+          }
+        }
+      }
+    },
+    {
+      "mark": "rule",
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width*(3/num_variables)"
+          }
+        },
+        "opacity": {
+          "value": 1
+        },
+        "y": {
           "field": "LeagueRank",
           "type": "quantitative",
           "scale": {
@@ -33,7 +141,33 @@
           },
           "axis": {
             "grid": false,
-            "title": null
+            "title": null,
+            "orient": "right",
+            "offset": {
+              "expr": "-width*(2/num_variables)"
+            },
+            "values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20
+            ]
           }
         },
         "detail": [
@@ -60,7 +194,7 @@
             "title": null,
             "orient": "right",
             "offset": {
-              "expr": "-width*(4/num_variables)"
+              "expr": "-width*(1/num_variables)"
             }
           }
         },
@@ -93,93 +227,6 @@
             "grid": false,
             "title": null,
             "orient": "right",
-            "offset": {
-              "expr": "-width*(3/num_variables)"
-            }
-          }
-        }
-      }
-    },
-    {
-      "mark": "rule",
-      "encoding": {
-        "x": {
-          "value": 0
-        },
-        "opacity": {
-          "value": 0
-        },
-        "y": {
-          "field": "Passes AvgLen",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              26,
-              56
-            ]
-          },
-          "axis": {
-            "grid": false,
-            "title": null,
-            "orient": "right",
-            "offset": {
-              "expr": "-width*(2/num_variables)"
-            }
-          }
-        }
-      }
-    },
-    {
-      "mark": "rule",
-      "encoding": {
-        "x": {
-          "value": 0
-        },
-        "opacity": {
-          "value": 0
-        },
-        "y": {
-          "field": "Goal Kicks AvgLen",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              20,
-              72
-            ]
-          },
-          "axis": {
-            "grid": false,
-            "title": null,
-            "orient": "right",
-            "offset": {
-              "expr": "-width*(1/num_variables)"
-            }
-          }
-        }
-      }
-    },
-    {
-      "mark": "rule",
-      "encoding": {
-        "x": {
-          "value": 0
-        },
-        "opacity": {
-          "value": 0
-        },
-        "y": {
-          "field": "Sweeper AvgDist",
-          "scale": {
-            "domain": [
-              10,
-              20
-            ]
-          },
-          "type": "quantitative",
-          "axis": {
-            "grid": false,
-            "title": null,
-            "orient": "right",
             "offset": 0
           }
         }
@@ -188,11 +235,14 @@
     {
       "transform": [
         {
-          "calculate": "['Rank', 'Clean Sheet %', 'GA90', 'Avg Pass Length', 'Avg Goal Kick Length', 'Avg Sweeper Dist']",
+          "filter": "league_selection==null || datum['Comp']==league_selection"
+        },
+        {
+          "calculate": "['Avg Sweeper Dist', 'Avg Goal Kick Length', 'Avg Pass Length', 'Rank', 'Clean Sheet %', 'GA90']",
           "as": "x"
         },
         {
-          "calculate": "[height - scale('layer_0_y', datum['LeagueRank']), height - scale('layer_1_y', datum['Performance CS%']), height - scale('layer_2_y', datum['Performance GA90']), height - scale('layer_3_y', datum['Passes AvgLen']), height - scale('layer_4_y', datum['Goal Kicks AvgLen']), height - scale('layer_5_y', datum['Sweeper AvgDist'])]",
+          "calculate": "[height - scale('layer_0_y', datum['Sweeper AvgDist']), height - scale('layer_1_y', datum['Goal Kicks AvgLen']), height - scale('layer_2_y', datum['Passes AvgLen']), height - scale('layer_3_y', datum['LeagueRank']), height - scale('layer_4_y', datum['Performance CS%']), height - scale('layer_5_y', datum['Performance GA90'])]",
           "as": "y"
         },
         {
@@ -250,7 +300,8 @@
           "field": "Player"
         },
         "color": {
-          "field": "Comp"
+          "field": "Comp",
+          "title": "League"
         },
         "tooltip": [
           {
@@ -300,9 +351,103 @@
     }
   },
   "config": {
-    "padding": 0,
-    "view": {
+    "background": "#f0f0f0",
+    "arc": {
+      "fill": "#30a2da"
+    },
+    "area": {
+      "fill": "#30a2da"
+    },
+    "axis": {
+      "domainColor": "#cbcbcb",
+      "grid": true,
+      "gridColor": "#cbcbcb",
+      "gridWidth": 1,
+      "labelColor": "#999",
+      "labelFontSize": 10,
+      "titleColor": "#333",
+      "tickColor": "#cbcbcb",
+      "tickSize": 10,
+      "titleFontSize": 14,
+      "titlePadding": 10,
+      "labelPadding": 4
+    },
+    "axisBand": {
+      "grid": false
+    },
+    "group": {
+      "fill": "#f0f0f0"
+    },
+    "legend": {
+      "labelColor": "#333",
+      "labelFontSize": 11,
+      "padding": 1,
+      "symbolSize": 30,
+      "symbolType": "square",
+      "titleColor": "#333",
+      "titleFontSize": 14,
+      "titlePadding": 10
+    },
+    "line": {
+      "stroke": "#30a2da",
+      "strokeWidth": 2
+    },
+    "path": {
+      "stroke": "#30a2da",
+      "strokeWidth": 0.5
+    },
+    "rect": {
+      "fill": "#30a2da"
+    },
+    "range": {
+      "category": [
+        "#30a2da",
+        "#fc4f30",
+        "#e5ae38",
+        "#6d904f",
+        "#8b8b8b",
+        "#b96db8",
+        "#ff9e27",
+        "#56cc60",
+        "#52d2ca",
+        "#52689e",
+        "#545454",
+        "#9fe4f8"
+      ],
+      "diverging": [
+        "#cc0020",
+        "#e77866",
+        "#f6e7e1",
+        "#d6e8ed",
+        "#91bfd9",
+        "#1d78b5"
+      ],
+      "heatmap": [
+        "#d6e8ed",
+        "#cee0e5",
+        "#91bfd9",
+        "#549cc6",
+        "#1d78b5"
+      ]
+    },
+    "point": {
+      "filled": true,
+      "shape": "circle"
+    },
+    "shape": {
+      "stroke": "#30a2da"
+    },
+    "bar": {
+      "binSpacing": 2,
+      "fill": "#30a2da",
       "stroke": null
+    },
+    "title": {
+      "anchor": "start",
+      "font": "Roboto Serif",
+      "fontSize": 24,
+      "fontWeight": 600,
+      "offset": 20
     }
   }
 }
