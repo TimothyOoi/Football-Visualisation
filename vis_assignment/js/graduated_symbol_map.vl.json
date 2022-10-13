@@ -99,7 +99,7 @@
             ],
             "mark": {
                 "type": "geoshape",
-                "fill": "#EFDD9D",
+                "fill": "#d1e2ce",
                 "stroke": "#B0B0B0"
             },
             "encoding": {
@@ -137,7 +137,7 @@
         },
         {
             "data": {
-                "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/vis_data/total_players_by_nation.csv"
+                "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/vis_assignment/data/total_players_by_nation.csv"
             },
             "mark": {
                 "type": "circle",
@@ -199,7 +199,8 @@
                         "orient": "bottom-left",
                         "fillColor": "white",
                         "strokeColor": "grey",
-                        "padding": 5
+                        "padding": 5,
+                        "symbolType": "circle"
                     }
                 },
                 "opacity": {
@@ -223,6 +224,58 @@
                         "title": "No. of Players"
                     }
                 ]
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/vis_assignment/data/total_players_by_nation.csv"
+            },
+            "mark": {
+                "type": "text",
+                "align": "center",
+                "dx": -5,
+                "dy": -12,
+                "fontSize": 12,
+                "opacity": 0.8
+            },
+            "transform": [
+                {
+                    "calculate": "parseInt(datum.Count)",
+                    "as": "Count"
+                },
+                {
+                    "window": [
+                        {
+                            "op": "rank",
+                            "as": "ranking"
+                        }
+                    ],
+                    "sort": [
+                        {
+                            "field": "Count",
+                            "order": "descending"
+                        }
+                    ],
+                    "groupby": [
+                        "Continent"
+                    ]
+                },
+                {
+                    "filter": "datum.ranking==1"
+                }
+            ],
+            "encoding": {
+                "latitude": {
+                    "field": "latitude",
+                    "type": "quantitative"
+                },
+                "longitude": {
+                    "field": "longitude",
+                    "type": "quantitative"
+                },
+                "text": {
+                    "field": "Country"
+                }
             }
         }
     ],
