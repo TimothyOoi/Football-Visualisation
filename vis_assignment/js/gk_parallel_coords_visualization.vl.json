@@ -223,7 +223,7 @@
           "as": "Passes AvgLen Desc"
         },
         {
-          "calculate": "['Avg Goal Kick Length', 'Avg Pass Length', 'Rank', 'Clean Sheet %', 'Goals Conceded per 90']",
+          "calculate": "['Avg Goal Kick Length', 'Avg Pass Length', 'Team Rank', 'Clean Sheet %', 'Goals Conceded per 90']",
           "as": "x"
         },
         {
