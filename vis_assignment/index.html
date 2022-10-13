@@ -13,10 +13,11 @@
         integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,700;1,8..144,300;1,8..144,400;1,8..144,500;1,8..144,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
 
     <!-- CSS file -->
     <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
@@ -25,17 +26,18 @@
 </head>
 
 <body>
-
     <div class="page">
-
         <!-- pure grid group -->
         <div class="pure-g">
             <div class="pure-u-1-1">
-                <h1>Visualisation on the Big 5 European Football Leagues (2021/2022 Season)</h1>
-                <p>The Premier League, Spanish La Liga, Bundesliga, Serie A, Ligue 1 are among the most entertaining
-                    football leagues not only in Europe, but also the world.
-                    This visualisation explores these five European football leagues over the 2021/2022 season.
-                </p>
+                <div class="title-section">
+                    <h1>Big Five European Football Leagues (2021/2022 Season)</h1>
+                    <p class="small-font">The Premier League, La Liga, Bundesliga, Serie A, Ligue 1 are among
+                        the most entertaining
+                        football leagues not only in Europe, but also the world.
+                        This visualisation explores these five European football leagues over the 2021/2022 season.
+                    </p>
+                </div>
             </div>
         </div>
         <!-- end pure grid group -->
@@ -44,19 +46,23 @@
         <div class="pure-g">
             <div class="pure-u-1-3">
                 <div class="description description-right">
-                    <h2>Player nationalities</h2>
-                    <p>
-                        Europe is the most represented continent in the five leagues, which is hardly surprising since
-                        these leagues are based in Europe. Africa and South America are also very well represented in
-                        the
-                        five leagues, with Africa boasting Premier League household names Mohamed Salah and
-                        Sadio Mane, while
-                        South America is home to superstars Lionel Messi and Neymar.
+                    <h2>Player Nationalities</h2>
+                    <p class="small-font">
+                        &emsp;Europe is the most represented continent in the five leagues, which is
+                        hardly surprising
+                        since
+                        these leagues are based in Europe. With <strong>436</strong> players, <strong>Spain</strong> is
+                        the leading nation in the world.
+                        <br><br>
+                        &emsp;Africa and South America are also very well represented
+                        in
+                        the five leagues, with <strong>Senegal</strong> and <strong>Brazil</strong> the leading nation
+                        in their respective continents.
                     </p>
                 </div>
             </div>
             <div class="pure-u-2-3">
-                <div id="map_vis" class="vis-container"></div>
+                <div id="map-vis" class="vis-container"></div>
             </div>
         </div>
         <!-- end pure grid group -->
@@ -65,33 +71,30 @@
         <div class="pure-g">
             <div class="pure-u-1-3">
                 <div class="description description-right">
-                    <h2>Clinical or simply lucky?</h2>
-                    <p>
-                        <i>Expected Goals (xG)</i> measures the likelihood that a player scores from a particular
+                    <h2>Clinical or Wasteful</h2>
+                    <p class="small-font">
+                        &emsp;<i>Expected Goals (xG)</i> measures the likelihood that a player scores from a particular
                         situation
-                        during a game. The value of <i>xG</i> ranges from zero to one, where zero represents a chance
-                        which is
-                        impossible to score.
-                        Conversely, a value of one means that a player is expected to score every single time. By
-                        analysing the <i>xG</i> and goals scored for a player,
-                        we can understand the shooting ability of luck of a particular player. A player who consistently
-                        scores more goals than their total <i>xG</i>
-                        probably has an above average shooting/finishing ability. Conversely, a player who has fewer
-                        goals scored
-                        compared to their total <i>xG</i> may be more wasteful in front goal, or simply subject to poor
-                        luck. During the 2021/2022
-                        season, <span class="overperformed_xg">Wissam Ben Yedder</span>, <span
-                            class="overperformed_xg">Son Heung Min</span> and <span class="overperformed_xg">Martin
+                        during a game. A player who scores more goals than their total <i>xG</i> is overperforming in
+                        front of goal, whereas
+                        a player underperformed if their goals scored is lower than their <i>xG</i>.
+                        <br><br>
+                        &emsp;During the
+                        2021/2022
+                        season, <span class="overperformed-xg">Wissam Ben Yedder</span>, <span
+                            class="overperformed-xg">Son
+                            Heung Min</span> and <span class="overperformed-xg">Martin
                             Terrier</span> were 20-goal players who significantly outperformed their total <i>xG</i>,
-                        while <span class="underperformed_xg">Burak Yılmaz</span> and <span
-                            class="underperformed_xg">Iñaki Williams</span> were the two most underperforming players
-                        based on the conversion of <i>xG</i>.
+                        while <span class="underperformed-xg">Burak Yılmaz</span> and <span
+                            class="underperformed-xg">Iñaki
+                            Williams</span> were the two most underperforming players
+                        based on the <i>xG</i> conversion.
 
                     </p>
                 </div>
             </div>
             <div class="pure-u-2-3">
-                <div id="xg_vs_g_vis" class="vis-container"></div>
+                <div id="xg-vs-g-vis" class="vis-container"></div>
             </div>
         </div>
         <!-- end pure grid group -->
@@ -100,14 +103,26 @@
         <div class="pure-g">
             <div class="pure-u-1-3">
                 <div class="description description-right">
-                    <h2>Age distributions</h2>
+                    <h2>Insights on Player Ages</h2>
                     <p>
-                        Some text
+                        &emsp;During the 2021/2022 season, the most frequent player age group among the five leagues is
+                        the <strong>24
+                            to
+                            26</strong> age group.
+                        <br><br>
+                        &emsp;However, this is not the case for all leagues. For both <span
+                            class="bundesliga">Bundesliga</span> and
+                        <span class="ligue-one">Ligue 1</span>, the
+                        younger <strong>21 to 23</strong> age group is the most frequent age group. As for <span
+                            class="la-liga">La
+                            Liga</span>, the
+                        most frequent age
+                        group is older at <strong>27 to 29</strong>.
                     </p>
                 </div>
             </div>
-            <div class="pure-u-1-3">
-                <div id="age_hist_vis" class=" vis-container"></div>
+            <div class="pure-u-2-3">
+                <div id="age-hist-vis" class=" vis-container"></div>
             </div>
         </div>
         <!-- end pure grid group -->
@@ -118,12 +133,43 @@
                 <div class="description description-right">
                     <h2>Passing Statistics</h2>
                     <p>
-                        Some text
+                        &emsp;Considering players who played 20 games and above, the median passes attempted per player
+                        was the highest in <span class="ligue-one">Ligue 1</span>. <strong>Marco Verrati</strong>
+                        attempted
+                        and completed the most passes per 90 minutes. <strong>Lionel Messi</strong> completed the most
+                        progressive passes per 90 minutes, which suggests that he was among the best players in moving
+                        his team forward with his ball distribution.
+                        <!-- Completed passes that move the ball towards the opponent's goal at least 10 yards from its
+                             furthest point in the last six passes, or any completed pass into the penalty area. 
+                             Excludes passes from the defending 40% of the pitch -->
+                    </p>
+                </div>
+            </div>
+            <div class="pure-u-1-3">
+                <div id="pass-boxplot-vis" class=" vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+                <div class="description description-right">
+                    <h2>Ball Playing Goalkeepers</h2>
+                    <p>
+                        &emsp;Gone are the days where goalkeepers only stopped shots. In the 2021/2022 season, not only
+                        did
+                        first choice goalkeepers from higher ranked teams have a higher clean sheet rate, but they also
+                        passed
+                        the ball at shorter distances on average.
+                        <br><br>
+                        &emsp;Unsurprisingly, a higher clean sheet rate translates to a fewer goals conceded per 90
+                        minutes in general.
                     </p>
                 </div>
             </div>
             <div class="pure-u-2-3">
-                <div id="pass_boxplot_vis" class=" vis-container"></div>
+                <div id="gk-parallel-coords-vis" class=" vis-container"></div>
             </div>
         </div>
         <!-- end pure grid group -->
@@ -135,22 +181,27 @@
         var specVis2 = "js/xg_vs_gls_scatterplot.vl.json";
         var specVis3 = "js/player_age_distribution.vl.json";
         var specVis4 = "js/pass_boxplots_visualization.vl.json";
+        var specVis5 = "js/gk_parallel_coords_visualization.vl.json";
 
         // vegaEmbed('#vis1', specVis1, { "actions": false });
 
-        vegaEmbed('#map_vis', specVis1, { "actions": false }).then(function (result) {
+        vegaEmbed('#map-vis', specVis1, { "actions": false }).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
 
-        vegaEmbed('#xg_vs_g_vis', specVis2, { "actions": false }).then(function (result) {
+        vegaEmbed('#xg-vs-g-vis', specVis2, { "actions": false }).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
 
-        vegaEmbed('#age_hist_vis', specVis3, { "actions": false }).then(function (result) {
+        vegaEmbed('#age-hist-vis', specVis3, { "actions": false }).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
 
-        vegaEmbed('#pass_boxplot_vis', specVis4, { "actions": false }).then(function (result) {
+        vegaEmbed('#pass-boxplot-vis', specVis4, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#gk-parallel-coords-vis', specVis5, { "actions": false }).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     </script>

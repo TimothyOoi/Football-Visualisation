@@ -1,35 +1,51 @@
-body * {
-    font-family: 'Open Sans', sans-serif;
-}
-
 h1 {
+    font-family: 'Roboto Serif', serif;
     font-weight: 900;
+    background-color: #0f4307;
+    color: azure;
+    padding: 1em 0;
+    text-align: center;
+    font-size: 30px;
 }
 
 body {
-    background-color: lightgray;
+    background-color: lightgrey;
 }
 
 .page {
-    width: 1200px;
-    background-color: rgb(255, 255, 255);
+    width: 1100px;
+    background-color: #d1e2ce;
     margin: auto;
-    padding: 50px;
-    padding-top: 35px;
+    /* padding: 50px; */
+    /* padding-top: 35px; */
+    border: 2em solid #d1e2ce;
 }
 
 .vis-container {
     width: 100%;
+    padding-top: 2em;
+    font-family: 'Roboto', sans-serif;
 }
 
-.description h2,
-h1 {
+.description h2 {
     margin-top: 0px;
+    padding: 0;
+    font-size: 26px;
+    font-family: 'Roboto Serif', serif;
+}
+
+p {
+    font-family: 'Roboto Serif', serif;
+    text-align: justify;
+    font-size: 18px;
 }
 
 .description-right {
-    padding-right: 20px;
-    text-align: justify;
+    /* padding-left: 10%; */
+    padding-right: 1em;
+    /* text-align: justify; */
+    font-size: 20px;
+    /* background-color: #e8f1e7; */
 }
 
 .description-left {
@@ -38,16 +54,46 @@ h1 {
 
 .pure-g {
     margin-bottom: 40px;
+    background-color: #d1e2ce;
 }
 
 .small-font {
-    font-size: 14px;
+    font-size: 18px;
 }
 
-.overperformed_xg {
+.overperformed-xg {
     color: #327754;
+    font-weight: bold;
 }
 
-.underperformed_xg {
+.underperformed-xg {
     color: #773255;
+    font-weight: bold;
 }
+
+.bundesliga {
+    color: #D3010C;
+    font-weight: bold;
+}
+
+.ligue-one {
+    color: #CED420;
+    font-weight: bold;
+}
+
+.la-liga {
+    color: #921E7F;
+    font-weight: bold;
+}
+
+/* .page {
+    width: 1100px;
+    background-color: #d1e2ce;
+    margin: auto;
+    border: 2em solid #e8f1e7;
+} */
+
+/* p {
+    background-color: #d1e2ce;
+    main green colour: #196f0c
+} */
