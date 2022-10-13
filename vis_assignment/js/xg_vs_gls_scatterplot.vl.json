@@ -234,7 +234,7 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 5
+        "dx": 10
       },
       "encoding": {
         "text": {
@@ -249,14 +249,14 @@
     {
       "transform": [
         {
-          "filter": "datum['Expected G-xG']<-6"
+          "filter": "datum['Expected G-xG']<-5"
         }
       ],
       "mark": {
         "type": "text",
         "align": "center",
-        "dx": -15,
-        "dy": -10,
+        "dx": -40,
+        "dy": -7,
         "angle": 0
       },
       "encoding": {
