@@ -2,13 +2,11 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container",
     "height": 400,
-    "title": {
-        "text": "Geographical Distribution of Players by Nationality"
-    },
+    "background": "#d1e2ce",
     "projection": {
         "type": "equalEarth",
         "center": {
-            "expr": "center_to"
+            "expr": "center_coord"
         },
         "scale": {
             "expr": "zoom_level"
@@ -27,48 +25,69 @@
             }
         },
         {
-            "name": "center_to",
+            "name": "center_coord",
+            "expr": "region_coord_arr[center_region_index]"
+        },
+        {
+            "name": "center_region_index",
+            "expr": "indexof(region_name_arr, center_to)"
+        },
+        {
+            "name": "region_coord_arr",
             "value": [
-                0,
-                0
-            ],
+                [
+                    0,
+                    0
+                ],
+                [
+                    20.939444,
+                    6.611111
+                ],
+                [
+                    94.443611,
+                    51.724722
+                ],
+                [
+                    9.254419,
+                    50.102223
+                ],
+                [
+                    -92.412528,
+                    25.30452
+                ],
+                [
+                    133.356833,
+                    -12.044762
+                ],
+                [
+                    -56.096944,
+                    -15.595833
+                ],
+                [
+                    108.425789,
+                    6.810082
+                ]
+            ]
+        },
+        {
+            "name": "region_name_arr",
+            "value": [
+                "World",
+                "Africa",
+                "Asia",
+                "Europe",
+                "North America",
+                "Oceania",
+                "South America",
+                "South East Asia"
+            ]
+        },
+        {
+            "name": "center_to",
+            "value": "World",
             "bind": {
                 "input": "select",
                 "options": [
-                    [
-                        0,
-                        0
-                    ],
-                    [
-                        20.939444,
-                        6.611111
-                    ],
-                    [
-                        94.443611,
-                        51.724722
-                    ],
-                    [
-                        9.254419,
-                        50.102223
-                    ],
-                    [
-                        -92.412528,
-                        25.30452
-                    ],
-                    [
-                        133.356833,
-                        -12.044762
-                    ],
-                    [
-                        -56.096944,
-                        -15.595833
-                    ],
-                    [
-                        108.425789,
-                        6.810082
-                    ]
-                ],
-                "labels": [
                     "World",
                     "Africa",
                     "Asia",
@@ -230,53 +249,123 @@
             "data": {
                 "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/vis_assignment/data/total_players_by_nation.csv"
             },
-            "mark": {
-                "type": "text",
-                "align": "center",
-                "dx": -5,
-                "dy": -12,
-                "fontSize": 12,
-                "opacity": 0.8
-            },
             "transform": [
                 {
                     "calculate": "parseInt(datum.Count)",
                     "as": "Count"
-                },
-                {
-                    "window": [
-                        {
-                            "op": "rank",
-                            "as": "ranking"
-                        }
-                    ],
-                    "sort": [
-                        {
-                            "field": "Count",
-                            "order": "descending"
-                        }
-                    ],
-                    "groupby": [
-                        "Continent"
-                    ]
-                },
-                {
-                    "filter": "datum.ranking==1"
                 }
             ],
-            "encoding": {
-                "latitude": {
-                    "field": "latitude",
-                    "type": "quantitative"
+            "layer": [
+                {
+                    "mark": {
+                        "type": "text",
+                        "align": "center",
+                        "dx": -10,
+                        "dy": -30,
+                        "fontSize": 14,
+                        "opacity": 0.8
+                    },
+                    "transform": [
+                        {
+                            "filter": "datum.Continent==center_to"
+                        },
+                        {
+                            "window": [
+                                {
+                                    "op": "rank",
+                                    "as": "ranking"
+                                }
+                            ],
+                            "sort": [
+                                {
+                                    "field": "Count",
+                                    "order": "descending"
+                                }
+                            ],
+                            "groupby": [
+                                "Continent"
+                            ]
+                        },
+                        {
+                            "filter": "datum.ranking==1"
+                        },
+                        {
+                            "calculate": "datum.Country + ' is top; in ' + datum.Continent",
+                            "as": "raw_text_annotation"
+                        },
+                        {
+                            "calculate": "split(datum.raw_text_annotation, ';')",
+                            "as": "text_annotation"
+                        }
+                    ],
+                    "encoding": {
+                        "latitude": {
+                            "field": "latitude",
+                            "type": "quantitative"
+                        },
+                        "longitude": {
+                            "field": "longitude",
+                            "type": "quantitative"
+                        },
+                        "text": {
+                            "field": "text_annotation"
+                        }
+                    }
                 },
-                "longitude": {
-                    "field": "longitude",
-                    "type": "quantitative"
-                },
-                "text": {
-                    "field": "Country"
+                {
+                    "mark": {
+                        "type": "text",
+                        "align": "center",
+                        "dx": -50,
+                        "dy": -15,
+                        "fontSize": 14,
+                        "opacity": 0.8
+                    },
+                    "transform": [
+                        {
+                            "filter": "center_to=='World'"
+                        },
+                        {
+                            "window": [
+                                {
+                                    "op": "rank",
+                                    "as": "ranking"
+                                }
+                            ],
+                            "sort": [
+                                {
+                                    "field": "Count",
+                                    "order": "descending"
+                                }
+                            ]
+                        },
+                        {
+                            "filter": "datum.ranking==1"
+                        },
+                        {
+                            "calculate": "datum.Country + ' is top; worldwide'",
+                            "as": "raw_text_annotation"
+                        },
+                        {
+                            "calculate": "split(datum.raw_text_annotation, ';')",
+                            "as": "text_annotation"
+                        }
+                    ],
+                    "encoding": {
+                        "latitude": {
+                            "field": "latitude",
+                            "type": "quantitative"
+                        },
+                        "longitude": {
+                            "field": "longitude",
+                            "type": "quantitative"
+                        },
+                        "text": {
+                            "field": "text_annotation"
+                        }
+                    }
                 }
-            }
+            ]
         }
     ],
     "config": {
