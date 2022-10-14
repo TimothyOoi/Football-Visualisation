@@ -1,8 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 400,
-  "title": "Histogram of Player Ages",
+  "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/datasets/Big5/2021-2022/stats.csv"
   },
@@ -44,9 +43,9 @@
       "axis": {
         "grid": true,
         "zindex": 1,
-        "domainColor": "#f0f0f0",
-        "tickColor": "#f0f0f0",
-        "gridColor": "#f0f0f0"
+        "domainColor": "#d1e2ce",
+        "tickColor": "#d1e2ce",
+        "gridColor": "#d1e2ce"
       }
     },
     "color": {
@@ -63,17 +62,21 @@
         "range": [
           "#D3010C",
           "#921e7f",
-          "#CED420",
+          "#8B4513",
           "#3d195b",
           "#008fd7"
         ]
+      },
+      "legend": {
+        "orient": "top-right",
+        "zindex": 1
       },
       "title": "League"
     }
   },
   "config": {
     "font": "Roboto",
-    "background": "#f0f0f0",
+    "background": "#d1e2ce",
     "padding": 10,
     "arc": {
       "fill": "#30a2da"
