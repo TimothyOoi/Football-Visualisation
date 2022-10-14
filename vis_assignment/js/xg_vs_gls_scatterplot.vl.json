@@ -1,10 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 400,
-  "title": {
-    "text": "Expected Goals against Goals Scored for All Outfield Players"
-  },
+  "height": 450,
   "data": {
     "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/datasets/Big5/2021-2022/shooting.csv"
   },
@@ -139,39 +136,48 @@
       }
     },
     {
+      "params": [
+        {
+          "name": "league_highlight",
+          "select": {
+            "type": "point",
+            "fields": [
+              "Comp"
+            ]
+          },
+          "bind": "legend"
+        },
+        {
+          "name": "grid",
+          "select": "interval",
+          "bind": "scales"
+        }
+      ],
       "mark": "point",
       "encoding": {
         "color": {
-          "field": "PosName",
+          "field": "Comp",
           "type": "nominal",
           "scale": {
             "domain": [
-              "Defender",
-              "Midfielder",
-              "Forward"
+              "Bundesliga",
+              "La Liga",
+              "Ligue 1",
+              "Premier League",
+              "Serie A"
             ],
             "range": [
-              "#1b9e77",
-              "#7570b3",
-              "#d95f02"
+              "#D3010C",
+              "#921e7f",
+              "#8B4513",
+              "#3d195b",
+              "#008fd7"
             ]
           },
           "legend": {
             "orient": "top-left",
             "direction": "vertical",
-            "fillColor": "white",
-            "strokeColor": "grey",
-            "padding": 5
-          },
-          "title": "Position"
-        },
-        "shape": {
-          "field": "Comp",
-          "type": "nominal",
-          "legend": {
-            "orient": "top-left",
-            "columns": 2,
-            "fillColor": "white",
+            "fillColor": "#d1e2ce",
             "strokeColor": "grey",
             "padding": 5
           },
@@ -181,7 +187,11 @@
           "value": 75
         },
         "opacity": {
-          "value": 0.7
+          "condition": {
+            "selection": "league_highlight",
+            "value": 0.7
+          },
+          "value": 0.2
         },
         "tooltip": [
           {
@@ -242,7 +252,7 @@
           "type": "nominal"
         },
         "color": {
-          "value": " #327754"
+          "value": " #004E00"
         }
       }
     },
@@ -268,11 +278,60 @@
           "value": "#773255"
         }
       }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 10,
+            "y": 34,
+            "raw_label": "\"Underperforming\" players; are above the dotted line.; They have fewer goals; scored than their total xG"
+          },
+          {
+            "x": 25,
+            "y": 6,
+            "raw_label": "\"Overperforming\" players; are below the dotted line.; They have more goals; scored than their total xG"
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "split(datum.raw_label, ';')",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontSize": 14,
+        "baseline": "bottom"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.x < 20",
+            "value": "#773255"
+          },
+          "value": "#004E00"
+        }
+      }
     }
   ],
   "config": {
     "font": "Roboto",
-    "background": "#f0f0f0",
+    "background": "#d1e2ce",
     "padding": 10,
     "arc": {
       "fill": "#30a2da"
