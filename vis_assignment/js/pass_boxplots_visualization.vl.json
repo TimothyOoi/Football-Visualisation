@@ -50,6 +50,8 @@
   ],
   "vconcat": [
     {
+      "width": "container",
+      "height": 100,
       "layer": [
         {
           "mark": "boxplot",
@@ -152,6 +154,8 @@
       ]
     },
     {
+      "width": "container",
+      "height": 100,
       "layer": [
         {
           "mark": "boxplot",
@@ -250,6 +254,8 @@
       ]
     },
     {
+      "width": "container",
+      "height": 100,
       "layer": [
         {
           "mark": "boxplot",
@@ -278,7 +284,7 @@
                 "range": [
                   "#D3010C",
                   "#921e7f",
-                  "#CED420",
+                  "#8B4513",
                   "#3d195b",
                   "#008fd7"
                 ]
@@ -372,7 +378,7 @@
       }
     },
     "font": "Roboto",
-    "background": "#f0f0f0",
+    "background": "#d1e2ce",
     "arc": {
       "fill": "#30a2da"
     },
