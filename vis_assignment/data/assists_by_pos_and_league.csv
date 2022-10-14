@@ -1,21 +1,21 @@
-Comp,Pos,Assists,Percentage of League
-Bundesliga,Defender,188,28.6%
-Bundesliga,Forward,210,32.0%
-Bundesliga,Goalkeeper,2,0.3%
-Bundesliga,Midfielder,257,39.1%
-La Liga,Defender,164,24.7%
-La Liga,Forward,247,37.2%
-La Liga,Goalkeeper,3,0.5%
-La Liga,Midfielder,250,37.7%
-Ligue 1,Defender,170,24.1%
-Ligue 1,Forward,269,38.1%
-Ligue 1,Goalkeeper,2,0.3%
-Ligue 1,Midfielder,265,37.5%
-Premier League,Defender,192,25.8%
-Premier League,Forward,299,40.2%
-Premier League,Goalkeeper,3,0.4%
-Premier League,Midfielder,249,33.5%
-Serie A,Defender,167,24.3%
-Serie A,Forward,265,38.6%
-Serie A,Goalkeeper,3,0.4%
-Serie A,Midfielder,252,36.7%
+Comp,Pos,Assists,Percentage of League,Label
+Bundesliga,Defender,188,28.6%,
+Bundesliga,Forward,210,32.0%,
+Bundesliga,Goalkeeper,2,0.3%,
+Bundesliga,Midfielder,257,39.1%,
+La Liga,Defender,164,24.7%,
+La Liga,Forward,247,37.2%,
+La Liga,Goalkeeper,3,0.5%,
+La Liga,Midfielder,250,37.7%,
+Ligue 1,Defender,170,24.1%,
+Ligue 1,Forward,269,38.1%,
+Ligue 1,Goalkeeper,2,0.3%,
+Ligue 1,Midfielder,265,37.5%,Total Assists by; Midfielders was highest; in Ligue 1
+Premier League,Defender,192,25.8%,Total Assists by; Defenders was highest; in Premier League
+Premier League,Forward,299,40.2%,Total Assists by; Forwards was highest; in Premier League
+Premier League,Goalkeeper,3,0.4%,
+Premier League,Midfielder,249,33.5%,
+Serie A,Defender,167,24.3%,
+Serie A,Forward,265,38.6%,
+Serie A,Goalkeeper,3,0.4%,
+Serie A,Midfielder,252,36.7%,
