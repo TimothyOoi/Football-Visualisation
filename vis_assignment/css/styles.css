@@ -86,6 +86,11 @@ p {
     font-weight: bold;
 }
 
+.foot-note {
+    font-size: 10px;
+    font-weight: lighter;
+}
+
 /* .page {
     width: 1100px;
     background-color: #d1e2ce;
