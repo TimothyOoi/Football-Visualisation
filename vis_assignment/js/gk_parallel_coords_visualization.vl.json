@@ -260,7 +260,7 @@
             "empty": false,
             "value": 1
           },
-          "value": 0.2
+          "value": 0.3
         },
         "x": {
           "field": "x",
@@ -285,7 +285,11 @@
           "field": "Player"
         },
         "color": {
-          "value": "#196f0c"
+          "condition": {
+            "test": "datum.LeagueRank <= 4",
+            "value": "#063970"
+          },
+          "value": "#773255"
         },
         "tooltip": [
           {
@@ -338,7 +342,7 @@
   },
   "config": {
     "font": "Roboto",
-    "background": "#f0f0f0",
+    "background": "#d1e2ce",
     "padding": 20,
     "arc": {
       "fill": "#30a2da"
