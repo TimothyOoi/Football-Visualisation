@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A horizontal box plot showing median and lower and upper quartiles of the distribution of passes attempted by outfield players in the 2021/2022 season.",
-  "title": "Distribution of Passes for All Outfield Players",
   "padding": {
     "left": 10,
     "top": 10,
@@ -50,8 +49,7 @@
   ],
   "vconcat": [
     {
-      "width": "container",
-      "height": 100,
+      "height": 80,
       "layer": [
         {
           "mark": "boxplot",
@@ -61,7 +59,8 @@
               "type": "nominal",
               "axis": {
                 "domain": false,
-                "ticks": false
+                "ticks": false,
+                "title": null
               },
               "title": "League"
             },
@@ -154,8 +153,7 @@
       ]
     },
     {
-      "width": "container",
-      "height": 100,
+      "height": 80,
       "layer": [
         {
           "mark": "boxplot",
@@ -254,8 +252,7 @@
       ]
     },
     {
-      "width": "container",
-      "height": 100,
+      "height": 80,
       "layer": [
         {
           "mark": "boxplot",
@@ -265,7 +262,8 @@
               "type": "nominal",
               "axis": {
                 "domain": false,
-                "ticks": false
+                "ticks": false,
+                "title": null
               },
               "title": "League"
             },
