@@ -112,7 +112,7 @@
         "type": "text",
         "align": "left",
         "baseline": "bottom",
-        "fontSize": 12,
+        "fontSize": 14,
         "dx": 60
       },
       "encoding": {
