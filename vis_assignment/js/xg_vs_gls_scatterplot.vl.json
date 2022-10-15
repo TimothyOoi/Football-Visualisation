@@ -291,7 +291,7 @@
               "as": "text_annotation_raw"
             },
             {
-              "calculate": "datum.Comp=='Premier League'? 'PL Joint Top Scorer': datum.text_annotation_raw",
+              "calculate": "datum.Comp=='Premier League'? 'PL Top Scorer': datum.text_annotation_raw",
               "as": "text_annotation_raw"
             },
             {
