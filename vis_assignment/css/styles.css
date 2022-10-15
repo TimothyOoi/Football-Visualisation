@@ -101,6 +101,11 @@ p {
     font-weight: bold;
 }
 
+.top-4 {
+    color: #063970;
+    font-weight: bold;
+}
+
 .foot-note {
     font-size: 10px;
     font-weight: lighter;

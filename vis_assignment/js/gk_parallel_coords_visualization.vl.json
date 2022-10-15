@@ -291,7 +291,7 @@
             "test": "datum.LeagueRank <= 4",
             "value": "#063970"
           },
-          "value": "#773255"
+          "value": "#A9A9A9"
         },
         "tooltip": [
           {
