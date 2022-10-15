@@ -44,57 +44,24 @@
 
         <!-- pure grid group -->
         <div class="pure-g">
-            <div class="pure-u-1-3">
+            <div class="pure-u-1-1">
                 <div class="description description-right">
-                    <h2>Player Nationalities</h2>
-                    <p class="small-font">
-                        &emsp;Europe is the most represented continent in the five leagues, which is
-                        hardly surprising
-                        since
-                        these leagues are based in Europe. With <strong>436</strong> players, <strong>Spain</strong> is
-                        the leading nation in the world.
-                        <br><br>
-                        &emsp;Africa and South America are also very well represented
-                        in
-                        the five leagues, with <strong>Senegal</strong> and <strong>Brazil</strong> the leading nation
-                        in their respective continents.
-                    </p>
+                    <h2>Geographical Distribution of Players by Nationality</h2>
                 </div>
             </div>
-            <div class="pure-u-2-3">
+            <div class="pure-u-1-1">
                 <div id="map-vis" class="vis-container"></div>
             </div>
-        </div>
-        <!-- end pure grid group -->
-
-        <!-- pure grid group -->
-        <div class="pure-g">
-            <div class="pure-u-1-3">
+            <div class="pure-u-1-1">
                 <div class="description description-right">
-                    <h2>Clinical or Wasteful</h2>
                     <p class="small-font">
-                        &emsp;<i>Expected Goals (xG)</i> measures the likelihood that a player scores from a particular
-                        situation
-                        during a game. A player who scores more goals than their total <i>xG</i> is overperforming in
-                        front of goal, whereas
-                        a player underperformed if their goals scored is lower than their <i>xG</i>.
-                        <br><br>
-                        &emsp;During the
-                        2021/2022
-                        season, <span class="overperformed-xg">Wissam Ben Yedder</span>, <span
-                            class="overperformed-xg">Son
-                            Heung Min</span> and <span class="overperformed-xg">Martin
-                            Terrier</span> were 20-goal players who significantly outperformed their total <i>xG</i>,
-                        while <span class="underperformed-xg">Burak Yılmaz</span> and <span
-                            class="underperformed-xg">Iñaki
-                            Williams</span> were the two most underperforming players
-                        based on the <i>xG</i> conversion.
-
+                        <strong>Europe</strong> is the most represented continent in the five leagues, which is
+                        hardly surprising as all five leagues are based in Europe. <strong>Africa</strong> and
+                        <strong>South America</strong> are also
+                        very well represented
+                        in the five leagues.
                     </p>
                 </div>
-            </div>
-            <div class="pure-u-2-3">
-                <div id="xg-vs-g-vis" class="vis-container"></div>
             </div>
         </div>
         <!-- end pure grid group -->
@@ -129,43 +96,114 @@
 
         <!-- pure grid group -->
         <div class="pure-g">
-            <div class="pure-u-1-3">
+            <div class="pure-u-1-1">
                 <div class="description description-right">
-                    <h2>Passing Statistics</h2>
-                    <p>
-                        &emsp;Considering players who played 20 games and above, the median passes attempted per player
-                        was the highest in <span class="ligue-one">Ligue 1</span>. <strong>Marco Verrati</strong>
-                        attempted
-                        and completed the most passes per 90 minutes. <strong>Lionel Messi</strong> completed the most
-                        progressive passes per 90 minutes, which suggests that he was among the best players in moving
-                        his team forward with his ball distribution.
-                        <!-- Completed passes that move the ball towards the opponent's goal at least 10 yards from its
-                             furthest point in the last six passes, or any completed pass into the penalty area. 
-                             Excludes passes from the defending 40% of the pitch -->
-                    </p>
+                    <h2>Expected Goals against Goals Scored for All Outfield Players</h2>
                 </div>
             </div>
-            <div class="pure-u-1-3">
-                <div id="pass-boxplot-vis" class=" vis-container"></div>
+            <div class="pure-u-1-6">
+            </div>
+            <div class="pure-u-2-3">
+                <div id="xg-vs-g-vis" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-6">
+            </div>
+            <div class="pure-u-1-1">
+                <div class="description description-right">
+                    <p class="small-font">
+                        <i>Expected Goals (xG)</i> measures the likelihood that a player scores from a particular
+                        situation during a game. The plot above shows the total <i>xG</i> of each player against their
+                        actual total goals scored for the 2021/2022 season, allowing us to understand all players'
+                        shooting
+                        performance for the season.<br>
+
+                    </p>
+                </div>
             </div>
         </div>
         <!-- end pure grid group -->
 
         <!-- pure grid group -->
         <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="description description-right">
+                    <h2>How Many Times were League Top Scorers Caught Offside?</h2>
+                </div>
+            </div>
+            <div class="pure-u-1-6">
+            </div>
+            <div class="pure-u-2-3">
+                <div id="offside-dot-vis" class=" vis-container"></div>
+            </div>
+            <div class="pure-u-1-6">
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div class="description description-right">
+                    <h2>Proportion of Total Assists by Position</h2>
+                </div>
+            </div>
+            <div class="pure-u-1-2">
+                <div class="description description-right">
+                    <h2>Distribution of Select Passing Statistics</h2>
+                </div>
+            </div>
+            <div class="pure-u-1-2">
+                <div id="assist-pie-vis" class=" vis-container"></div>
+            </div>
+            <div class="pure-u-1-2">
+                <div id="pass-boxplot-vis" class=" vis-container"></div>
+            </div>
+            <div class="pure-u-1-2">
+                <div class="description description-right">
+                    <p>
+                        &emsp;A total of <strong>3457</strong> assists were performed during the 2021/2022 season.
+                        <span class="forward">Forwards</span> narrowly
+                        edged out <span class="midfielder">midfielders</span> as the top assisting position.
+                        However, football is clearly a team sport as even <span class="goalkeeper">goalkeepers</span>
+                        chipped in with a few assist!
+                    </p>
+                </div>
+            </div>
+            <div class="pure-u-1-2">
+                <div class="description description-right">
+                    <p>
+                        &emsp;The median passes attempted per player
+                        was the highest in <span class="ligue-one">Ligue 1</span>. <strong>Marco Verrati</strong>
+                        attempted
+                        and completed the most passes per 90 minutes. <strong>Lionel Messi</strong> completed the most
+                        progressive passes per 90 minutes, which suggests that he was among the best players in moving
+                        his team forward with his ball distribution.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="description description-right">
+                    <h2>Goalkeeper Passing Range and Clean Sheet Rate by Top 4 Teams against Others</h2>
+                </div>
+            </div>
             <div class="pure-u-1-3">
                 <div class="description description-right">
-                    <h2>Ball Playing Goalkeepers</h2>
                     <p>
-                        &emsp;Gone are the days where goalkeepers only stopped shots. In the 2021/2022 season, numbers
-                        show that
-                        first choice goalkeepers from <strong>higher ranked</strong> teams have a <strong>higher clean
+                        &emsp;The parallel coordinates displays goalkeeping statistics by first choice goalkeepers.
+                        In the 2021/2022 season, not only did first choice goalkeepers from top 4 teams
+                        maintain a <strong>higher clean
                             sheet
-                            rate</strong>, but they also
-                        performed <strong>passes at shorter distances</strong> on average.
+                            rates</strong>, but they also
+                        performed <strong>passes at shorter distances</strong> on average compared to the rest. This
+                        suggests that top teams tend to <i>"play out from the back"</i> with their goalkeepers.
                         <br><br>
-                        &emsp;Unsurprisingly, a higher clean sheet rate translates to fewer goals conceded per 90
-                        minutes in general.
+                        &emsp;Unsurprisingly, a higher clean sheet rate generally translates to fewer goals
+                        conceded per 90 minutes.
                     </p>
                 </div>
             </div>
@@ -178,8 +216,12 @@
         <div class="pure-g">
             <div class="pure-u-1-1">
                 <p class="foot-note">This visualisation is created by Timothy Ooi. The Datasource is <a
-                        href="https://fbref.com/en/" target="_blank">FBref.com
-                        </href>.</p>
+                        href="https://fbref.com/en/" target="_blank">FBref.com</a>. Dot plot icon obtained
+                    from <a href="https://www.flaticon.com/free-icons/offside" title="offside icons"
+                        target="_blank">Offside
+                        icons
+                        created by Freepik - Flaticon</a>
+                    </href>.</p>
             </div>
         </div>
 
@@ -191,6 +233,8 @@
         var specVis3 = "js/player_age_distribution.vl.json";
         var specVis4 = "js/pass_boxplots_visualization.vl.json";
         var specVis5 = "js/gk_parallel_coords_visualization.vl.json";
+        var specVis6 = "js/assist_pie_chart.vl.json";
+        var specVis7 = "js/offside_dotplot_visualization.vl.json";
 
         // vegaEmbed('#vis1', specVis1, { "actions": false });
 
@@ -211,6 +255,14 @@
         }).catch(console.error);
 
         vegaEmbed('#gk-parallel-coords-vis', specVis5, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#assist-pie-vis', specVis6, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#offside-dot-vis', specVis7, { "actions": false }).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     </script>

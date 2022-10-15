@@ -5,7 +5,8 @@ h1 {
     color: azure;
     padding: 1em 0;
     text-align: center;
-    font-size: 30px;
+    font-size: 32px;
+    border: thick double azure;
 }
 
 body {
@@ -13,17 +14,14 @@ body {
 }
 
 .page {
-    width: 1100px;
+    width: 1000px;
     background-color: #d1e2ce;
     margin: auto;
-    /* padding: 50px; */
-    /* padding-top: 35px; */
     border: 2em solid #d1e2ce;
 }
 
 .vis-container {
     width: 100%;
-    padding-top: 2em;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -31,7 +29,8 @@ body {
     margin-top: 0px;
     padding: 0;
     font-size: 26px;
-    font-family: 'Roboto Serif', serif;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
 }
 
 p {
@@ -55,6 +54,7 @@ p {
 .pure-g {
     margin-bottom: 40px;
     background-color: #d1e2ce;
+    width: 100%;
 }
 
 .small-font {
@@ -77,7 +77,7 @@ p {
 }
 
 .ligue-one {
-    color: #CED420;
+    color: #8B4513;
     font-weight: bold;
 }
 
@@ -86,19 +86,22 @@ p {
     font-weight: bold;
 }
 
+.forward {
+    color: #003f5c;
+    font-weight: bold;
+}
+
+.midfielder {
+    color: #7a5195;
+    font-weight: bold;
+}
+
+.goalkeeper {
+    color: #ffa600;
+    font-weight: bold;
+}
+
 .foot-note {
     font-size: 10px;
     font-weight: lighter;
 }
-
-/* .page {
-    width: 1100px;
-    background-color: #d1e2ce;
-    margin: auto;
-    border: 2em solid #e8f1e7;
-} */
-
-/* p {
-    background-color: #d1e2ce;
-    main green colour: #196f0c
-} */
