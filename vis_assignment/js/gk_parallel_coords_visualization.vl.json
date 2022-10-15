@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A parallel coordinates plot",
-  "title": "Goalkeeping Statistics by First Choice Goalkeeper",
+  "description": "A parallel coordinates plot showing Goalkeeping Statistics by First Choice Goalkeeper",
   "data": {
     "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/vis_assignment/data/gk_and_team_standings.csv"
   },
@@ -116,6 +115,9 @@
             "title": null,
             "orient": "right",
             "labelFontWeight": 900,
+            "labelFontSize": 11,
+            "labelOpacity": 0.8,
+            "labelColor": "black",
             "offset": {
               "expr": "-width*(2/num_variables)"
             },
@@ -242,7 +244,7 @@
           "name": "highlight",
           "select": {
             "type": "point",
-            "on": "click"
+            "on": "mouseover"
           }
         }
       ],
@@ -309,7 +311,7 @@
           {
             "field": "LeagueRank",
             "type": "quantitative",
-            "title": "League Rank"
+            "title": "Team Rank"
           },
           {
             "field": "Clean Sheet Rate",
@@ -324,12 +326,12 @@
           {
             "field": "Passes AvgLen Desc",
             "type": "nominal",
-            "title": "Avg Pass Length"
+            "title": "Average Pass Length"
           },
           {
             "field": "Goal Kicks AvgLen Desc",
             "type": "nominal",
-            "title": "Avg Goal Kick Length"
+            "title": "Average Goal Kick Length"
           }
         ]
       }
