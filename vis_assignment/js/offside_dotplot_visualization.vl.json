@@ -1,0 +1,236 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/datasets/Big5/2021-2022/misc.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.Player=='Robert Lewandowski' || datum.Player=='Karim Benzema' || datum.Player=='Kylian Mbappé' || datum.Player=='Ciro Immobile' || datum.Player=='Mohamed Salah' || datum.Player=='Son Heung-min'"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Performance Off",
+      "type": "quantitative",
+      "title": "Total Offsides",
+      "axis": {
+        "domainOpacity": 0
+      }
+    },
+    "y": {
+      "field": "Player",
+      "type": "nominal",
+      "sort": "-x",
+      "axis": {
+        "title": null,
+        "labelFontSize": 14,
+        "labelFontWeight": "bold",
+        "labelColor": "black"
+      }
+    },
+    "order": {
+      "field": "Performance Off"
+    },
+    "tooltip": [
+      {
+        "field": "Player",
+        "type": "nominal"
+      },
+      {
+        "field": "Comp",
+        "type": "nominal",
+        "title": "League"
+      },
+      {
+        "field": "Performance Off",
+        "type": "quantitative",
+        "title": "Total Offsides"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "size": 4,
+        "color": "#A9A9A9"
+      }
+    },
+    {
+      "mark": {
+        "type": "image",
+        "width": 50,
+        "height": 30
+      },
+      "encoding": {
+        "url": {
+          "value": "https://raw.githubusercontent.com/TimothyOoi/Football-Visualisation/master/vis_assignment/data/offside.png"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "dx": 25
+      },
+      "encoding": {
+        "text": {
+          "field": "Performance Off"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "window": [
+            {
+              "op": "rank",
+              "as": "ranking"
+            }
+          ],
+          "sort": [
+            {
+              "field": "Performance Off",
+              "order": "descending"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.ranking==3 ? 'Despite scoring the most goals; in the five leagues, Lewandowski; was only the third most caught; offside among league top scorers' : datum.ranking==6 ? 'Salah was caught offside 4 times fewer; than fellow PL top scorer Son Heung-min' : ''",
+          "as": "text_annotation_raw"
+        },
+        {
+          "calculate": "split(datum.text_annotation_raw, ';')",
+          "as": "text_annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "bottom",
+        "fontSize": 12,
+        "dx": 60
+      },
+      "encoding": {
+        "text": {
+          "field": "text_annotation"
+        }
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "x": "shared"
+    }
+  },
+  "config": {
+    "padding": 10,
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    },
+    "font": "Roboto",
+    "background": "#d1e2ce",
+    "arc": {
+      "fill": "#30a2da"
+    },
+    "area": {
+      "fill": "#30a2da"
+    },
+    "axis": {
+      "domainColor": "#cbcbcb",
+      "grid": true,
+      "gridColor": "#cbcbcb",
+      "gridWidth": 1,
+      "labelColor": "#999",
+      "labelFontSize": 10,
+      "titleColor": "#333",
+      "tickColor": "#cbcbcb",
+      "tickSize": 10,
+      "titleFontSize": 14,
+      "titlePadding": 10,
+      "labelPadding": 4
+    },
+    "axisBand": {
+      "grid": false
+    },
+    "group": {
+      "fill": "#f0f0f0"
+    },
+    "legend": {
+      "labelColor": "#333",
+      "labelFontSize": 11,
+      "padding": 1,
+      "symbolSize": 30,
+      "symbolType": "square",
+      "titleColor": "#333",
+      "titleFontSize": 14,
+      "titlePadding": 10
+    },
+    "line": {
+      "stroke": "#30a2da",
+      "strokeWidth": 2
+    },
+    "path": {
+      "stroke": "#30a2da",
+      "strokeWidth": 0.5
+    },
+    "rect": {
+      "fill": "#30a2da"
+    },
+    "range": {
+      "category": [
+        "#30a2da",
+        "#fc4f30",
+        "#e5ae38",
+        "#6d904f",
+        "#8b8b8b",
+        "#b96db8",
+        "#ff9e27",
+        "#56cc60",
+        "#52d2ca",
+        "#52689e",
+        "#545454",
+        "#9fe4f8"
+      ],
+      "diverging": [
+        "#cc0020",
+        "#e77866",
+        "#f6e7e1",
+        "#d6e8ed",
+        "#91bfd9",
+        "#1d78b5"
+      ],
+      "heatmap": [
+        "#d6e8ed",
+        "#cee0e5",
+        "#91bfd9",
+        "#549cc6",
+        "#1d78b5"
+      ]
+    },
+    "point": {
+      "filled": true,
+      "shape": "circle"
+    },
+    "shape": {
+      "stroke": "#30a2da"
+    },
+    "bar": {
+      "binSpacing": 2,
+      "fill": "#30a2da",
+      "stroke": null
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 24,
+      "fontWeight": 600,
+      "offset": 20
+    }
+  }
+}
