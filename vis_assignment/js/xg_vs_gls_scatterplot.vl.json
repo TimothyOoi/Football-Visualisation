@@ -91,12 +91,12 @@
       "data": {
         "values": [
           {
-            "x": 0,
-            "y": 0
+            "x": -50000,
+            "y": -50000
           },
           {
-            "x": 36,
-            "y": 36
+            "x": 50000,
+            "y": 50000
           }
         ]
       },
@@ -238,6 +238,97 @@
     {
       "transform": [
         {
+          "calculate": "parseInt(datum['Standard Gls'])",
+          "as": "Goals Scored"
+        },
+        {
+          "window": [
+            {
+              "op": "rank",
+              "as": "ranking"
+            }
+          ],
+          "sort": [
+            {
+              "field": "Goals Scored",
+              "order": "descending"
+            }
+          ],
+          "groupby": [
+            "Comp"
+          ]
+        },
+        {
+          "filter": "datum.ranking == 1"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "point",
+            "size": 200,
+            "shape": "M0,.5L.6,.8L.5,.1L1,-.3L.3,-.4L0,-1L-.3,-.4L-1,-.3L-.5,.1L-.6,.8L0,.5Z"
+          },
+          "encoding": {
+            "color": {
+              "field": "Comp",
+              "type": "nominal",
+              "legend": null
+            },
+            "opacity": {
+              "condition": {
+                "selection": "league_highlight",
+                "value": 0.7
+              },
+              "value": 0.2
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "calculate": "datum.Comp + ' Top Scorer'",
+              "as": "text_annotation_raw"
+            },
+            {
+              "calculate": "datum.Comp=='Premier League'? 'PL Joint Top Scorer': datum.text_annotation_raw",
+              "as": "text_annotation_raw"
+            },
+            {
+              "calculate": "split(datum.text_annotation_raw, ';')",
+              "as": "text_annotation"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "center",
+            "dx": 0,
+            "dy": -15
+          },
+          "encoding": {
+            "text": {
+              "field": "text_annotation",
+              "type": "nominal"
+            },
+            "color": {
+              "field": "Comp",
+              "type": "nominal"
+            },
+            "opacity": {
+              "condition": {
+                "selection": "league_highlight",
+                "empty": false,
+                "value": 0.7
+              },
+              "value": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "transform": [
+        {
           "filter": "datum['Expected G-xG']>6.2"
         }
       ],
@@ -253,6 +344,13 @@
         },
         "color": {
           "value": " #004E00"
+        },
+        "opacity": {
+          "condition": {
+            "selection": "league_highlight",
+            "value": 0.7
+          },
+          "value": 0.2
         }
       }
     },
@@ -276,6 +374,13 @@
         },
         "color": {
           "value": "#773255"
+        },
+        "opacity": {
+          "condition": {
+            "selection": "league_highlight",
+            "value": 0.7
+          },
+          "value": 0.2
         }
       }
     },
