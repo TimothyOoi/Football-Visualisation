@@ -353,11 +353,11 @@
       "fill": "#30a2da"
     },
     "axis": {
-      "domainColor": "#cbcbcb",
+      "domainColor": "#000",
       "grid": true,
       "gridColor": "#cbcbcb",
       "gridWidth": 1,
-      "labelColor": "#999",
+      "labelColor": "#000",
       "labelFontSize": 10,
       "titleColor": "#333",
       "tickColor": "#cbcbcb",

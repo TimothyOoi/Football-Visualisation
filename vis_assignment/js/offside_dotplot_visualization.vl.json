@@ -147,7 +147,7 @@
       "grid": true,
       "gridColor": "#cbcbcb",
       "gridWidth": 1,
-      "labelColor": "#999",
+      "labelColor": "#000",
       "labelFontSize": 10,
       "titleColor": "#333",
       "tickColor": "#cbcbcb",

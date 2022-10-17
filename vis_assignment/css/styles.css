@@ -1,5 +1,8 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 h1 {
-    font-family: 'Roboto Serif', serif;
     font-weight: 900;
     background-color: #0f4307;
     color: azure;
@@ -22,7 +25,6 @@ body {
 
 .vis-container {
     width: 100%;
-    font-family: 'Roboto', sans-serif;
 }
 
 .description h2 {

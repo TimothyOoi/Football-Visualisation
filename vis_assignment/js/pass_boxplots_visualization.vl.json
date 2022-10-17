@@ -19,22 +19,22 @@
         "min": 0,
         "max": 30,
         "step": 1,
-        "name": "90s Played Above: "
+        "name": "No. of 90 mins Played Above: "
       }
     }
   ],
   "transform": [
     {
       "calculate": "datum['Total Att']/datum['90s']",
-      "as": "Passes Attempted per 90"
+      "as": "Passes Attempted per 90 mins"
     },
     {
       "calculate": "datum['Total Cmp']/datum['90s']",
-      "as": "Passes Completed per 90"
+      "as": "Passes Completed per 90 mins"
     },
     {
       "calculate": "datum['Long Prog']/datum['90s']",
-      "as": "Progressive Passes per 90"
+      "as": "Progressive Passes per 90 mins"
     },
     {
       "calculate": "datum.Pos=='MF' ? 'Midfielder': datum.Pos=='DF' ? 'Defender' : datum.Pos=='FW' ? 'Forward': datum.Pos",
@@ -71,7 +71,7 @@
               "title": "League"
             },
             "x": {
-              "field": "Passes Attempted per 90",
+              "field": "Passes Attempted per 90 mins",
               "type": "quantitative",
               "scale": {
                 "zero": false
@@ -123,7 +123,7 @@
               ],
               "sort": [
                 {
-                  "field": "Passes Attempted per 90",
+                  "field": "Passes Attempted per 90 mins",
                   "order": "descending"
                 }
               ],
@@ -137,7 +137,7 @@
           ],
           "encoding": {
             "x": {
-              "field": "Passes Attempted per 90",
+              "field": "Passes Attempted per 90 mins",
               "type": "quantitative"
             },
             "y": {
@@ -174,7 +174,7 @@
               "title": "League"
             },
             "x": {
-              "field": "Passes Completed per 90",
+              "field": "Passes Completed per 90 mins",
               "type": "quantitative",
               "scale": {
                 "zero": false
@@ -199,7 +199,7 @@
                 "title": "Team"
               },
               {
-                "field": "Passes Completed per 90",
+                "field": "Passes Completed per 90 mins",
                 "type": "quantitative",
                 "format": ".2f"
               }
@@ -222,7 +222,7 @@
               ],
               "sort": [
                 {
-                  "field": "Passes Completed per 90",
+                  "field": "Passes Completed per 90 mins",
                   "order": "descending"
                 }
               ],
@@ -236,7 +236,7 @@
           ],
           "encoding": {
             "x": {
-              "field": "Passes Completed per 90",
+              "field": "Passes Completed per 90 mins",
               "type": "quantitative"
             },
             "y": {
@@ -290,7 +290,7 @@
               "title": "League"
             },
             "x": {
-              "field": "Progressive Passes per 90",
+              "field": "Progressive Passes per 90 mins",
               "type": "quantitative",
               "scale": {
                 "zero": false
@@ -315,7 +315,7 @@
                 "title": "Team"
               },
               {
-                "field": "Progressive Passes per 90",
+                "field": "Progressive Passes per 90 mins",
                 "type": "quantitative",
                 "format": ".2f"
               }
@@ -338,7 +338,7 @@
               ],
               "sort": [
                 {
-                  "field": "Progressive Passes per 90",
+                  "field": "Progressive Passes per 90 mins",
                   "order": "descending"
                 }
               ],
@@ -352,7 +352,7 @@
           ],
           "encoding": {
             "x": {
-              "field": "Progressive Passes per 90",
+              "field": "Progressive Passes per 90 mins",
               "type": "quantitative"
             },
             "y": {
@@ -388,7 +388,7 @@
       "grid": true,
       "gridColor": "#cbcbcb",
       "gridWidth": 1,
-      "labelColor": "#999",
+      "labelColor": "#000",
       "labelFontSize": 10,
       "titleColor": "#333",
       "tickColor": "#cbcbcb",
